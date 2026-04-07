@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="Airport Robobus - Revolutionizing the airport departure experience">
+    <meta name="keywords" content="airport, autonomous, check-in, baggage, innovation">
+    <meta name="author" content="Airport Innovation">
+    
+    <!-- Page Title -->
+    <title>Airport Robobus | Zero-Carry Departure Experience</title>
+<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #734bdf;
+            --secondary-color: #1E293B;
+            --accent-color: #734bdf;
+            --text-dark: #0F172A;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-default {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-default:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(115, 75, 223, 0.35);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outlined:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(2, 6, 23, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%), url('./assets/images/airport/hero-airport.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 120px 0 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .page-header-box {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 60px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-header .hero-subtitle {
+            font-size: 24px;
+            color: rgba(255,255,255,0.95);
+            font-weight: 650;
+            margin-bottom: 25px;
+            display: inline-block;
+            max-width: 980px;
+            line-height: 1.4;
+            padding: 14px 18px;
+            border-radius: 16px;
+           
+        }
+
+        .page-header .hero-subtitle .accent {
+            color: var(--primary-color);
+            font-weight: 750;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .promise-badge {
+            display: inline-block;
+            background: rgba(115, 75, 223, 0.18);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 40px;
+            margin: 30px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+        }
+
+        .cta-buttons .btn-default,
+        .cta-buttons .btn-outlined {
+            margin: 10px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-light);
+        }
+
+        .problem-item {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .problem-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .problem-item .icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .problem-item h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .problem-item p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Idea Section */
+        .idea-section {
+            background: var(--white);
+        }
+
+        .idea-step {
+            text-align: center;
+            padding: 40px 25px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1e3a5f 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .idea-step:hover {
+            transform: scale(1.05);
+        }
+
+        .idea-step::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,87,51,0.1) 0%, transparent 70%);
+        }
+
+        .step-number {
+            position: relative;
+            font-size: 50px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .idea-step h4 {
+            position: relative;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .idea-step p {
+            position: relative;
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+
+        /* Storyboard Section */
+        .storyboard-section {
+            background: var(--bg-light);
+        }
+
+        .story-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .story-image {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .story-image .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .story-content {
+            padding: 40px;
+        }
+
+        .story-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .story-content p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .benefits-section .section-title h2,
+        .benefits-section .section-title h3 {
+            color: var(--white);
+        }
+
+        .benefits-section .section-title p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.08);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .benefit-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .benefit-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* How It Works */
+        .how-section {
+            background: var(--white);
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+            transform: translateX(15px);
+        }
+
+        .process-number {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-right: 25px;
+        }
+
+        .process-step:hover .process-number {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .process-step strong {
+            font-weight: 700;
+        }
+
+        /* Audience Section */
+        .audience-section {
+            background: var(--bg-light);
+        }
+
+        .audience-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .audience-emoji {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .audience-card h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .audience-card p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Future Section */
+        .future-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+        }
+
+        .future-section .section-title h2,
+        .future-section .section-title h3 {
+            color: var(--white);
+        }
+
+        .future-section .section-title p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .future-item {
+            background: rgba(255,255,255,0.95);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .future-item h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .future-item p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: rgba(255,255,255,0.7);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        .wow {
+            visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .page-header .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .story-image {
+                height: 300px;
+            }
+
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .process-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .cta-buttons .btn-default,
+            .cta-buttons .btn-outlined {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Start -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                
+                <a href="index.html" class="navbar-brand">← Airport Robobus</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#problem">The Problem</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#solution">The Solution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#journey">Journey</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how">How It Works</a>
+                        </li>
+                       
+                    </ul>
+                   
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
+
+    <!-- Page Header Section Start -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header-box">
+                        <h1 class="animate__animated animate__fadeInUp">Check in. Drop bags. <br>Walk hands-free to departures.</h1>
+                        <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Reinventing the airport departure experience with an autonomous <span class="accent">“Check-in &amp; Bag Drop”</span> Robobus.</p>
+                        <p class="animate__animated animate__fadeInUp animate__delay-2s">Arrive at the airport, step into the robobus, complete check-in, tag and drop your bags — then walk straight to security hands-free. The robobus securely transports your luggage to the designated baggage acceptance point.</p>
+                        <div class="promise-badge animate__animated animate__fadeInUp animate__delay-3s">
+                            Zero-carry. Queue-less. Seamless departure.
+                        </div>
+                        <div class="cta-buttons animate__animated animate__fadeInUp animate__delay-4s">
+                            <a href="#journey" class="btn-default">Explore the Journey</a>
+                            <a href="#how" class="btn-outlined">See How It Works</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header Section End -->
+
+    <!-- Problem Section Start -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">The Challenge</h3>
+                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">The Problem</h2>
+                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Airports are stressful for one simple reason: the departure flow forces everyone to do the hard part first.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <div class="icon"><i class="fas fa-suitcase-rolling"></i></div>
+                        <h4>Heavy Lifting</h4>
+                        <p>Carry heavy bags from the car to the terminal entrance</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h4>Trolley Hunt</h4>
+                        <p>Search for available trolleys in crowded areas</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <h4>Queue Stress</h4>
+                        <p>Wait at check-in counters during peak hours</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                        <div class="icon"><i class="fas fa-tasks"></i></div>
+                        <h4>Manual Tasks</h4>
+                        <p>Print documents, weigh bags, tag luggage yourself</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">
+                        <div class="icon"><i class="fas fa-walking"></i></div>
+                        <h4>Long Walks</h4>
+                        <p>Travel long distances before reaching security</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.7s">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h4>Congestion</h4>
+                        <p>Especially painful for families and peak seasons</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Problem Section End -->
+
+    <!-- Idea Section Start -->
+    <section id="solution" class="idea-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">The Innovation</h3>
+                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Check-in & Bag Drop on Wheels</h2>
+                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">The robobus turns the most painful part of the airport journey into a smooth service that comes to you.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <div class="step-number">01</div>
+                        <h4>Board at Drop-off</h4>
+                        <p>Meet the robobus at parking or arrival zones</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <div class="step-number">02</div>
+                        <h4>Self Check-in</h4>
+                        <p>Complete check-in inside the comfortable robobus</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <div class="step-number">03</div>
+                        <h4>Weigh & Tag Bags</h4>
+                        <p>Drop bags into secure compartments with tracking</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                        <div class="step-number">04</div>
+                        <h4>Walk to Security</h4>
+                        <p>Exit near security, hands-free and stress-free</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">
+                        <div class="step-number">05</div>
+                        <h4>Automated Delivery</h4>
+                        <p>Robobus delivers luggage to approved drop point</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Idea Section End -->
+
+    <!-- Storyboard Section Start -->
+    <section id="journey" class="storyboard-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">Experience</h3>
+                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">The Journey</h2>
+                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Experience the seamless flow from arrival to security</p>
+            </div>
+
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">1</div>
+                            <img class="story-img" src="./assets/images/airport/hero-airport.jpg" alt="Arrive &amp; Board" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="story-content">
+                            <h3>Arrive & Board — No trolleys, no lifting</h3>
+                            <p>Step out of the car and into the robobus. Your departure journey starts immediately — without carrying bags through the terminal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">2</div>
+                            <img class="story-img" src="./assets/images/airport/story-2.jpg" alt="Check-in Inside" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="story-content">
+                            <h3>Check-in Inside — Simple, guided, fast</h3>
+                            <p>Complete your check-in in a calm, organized space. Print or confirm your boarding pass and prepare your luggage for drop-off.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">3</div>
+                            <img class="story-img" src="./assets/images/airport/story-3.jpg" alt="Weigh, Tag &amp; Secure Bags" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="story-content">
+                            <h3>Weigh, Tag & Drop Luggage — Secure and tracked</h3>
+                            <p>Weigh your bags, print tags, then drop them into secure locked compartments. Each bag is tracked and logged to ensure a clear chain of custody.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">4</div>
+                            <img class="story-img" src="./assets/images/airport/story-4.jpg" alt="Walk to Security Hands-Free" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="story-content">
+                            <h3>Walk hands-free to departures</h3>
+                            <p>Exit near the security entry with only your passport and phone. The robobus transports luggage to the designated acceptance location.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Storyboard Section End -->
+
+    <!-- Benefits Section Start -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">Impact</h3>
+                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Why It Matters</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="benefit-card wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <span class="benefit-icon">✈️</span>
+                        <h4>A New Airport Experience</h4>
+                        <ul class="benefit-list">
+                            <li><strong>Zero-carry:</strong> No more hauling bags or searching for trolleys</li>
+                            <li><strong>Queue-less:</strong> Reduced check-in counter congestion</li>
+                            <li><strong>Less stress:</strong> A calmer start to the journey</li>
+                            <li><strong>Better flow:</strong> Distributed demand, not concentrated</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="benefit-card wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <span class="benefit-icon">🏢</span>
+                        <h4>Value for Airports & Operators</h4>
+                        <ul class="benefit-list">
+                            <li>Lower congestion at check-in halls</li>
+                            <li>Better peak-hour handling (holidays, events, seasonal surges)</li>
+                            <li>Premium, high-visibility innovation story</li>
+                            <li>Improved passenger satisfaction scores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Benefits Section End -->
+
+    <!-- How It Works Section Start -->
+    <section id="how" class="how-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">Process</h3>
+                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">How It Works</h2>
+                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">A simple, streamlined process from start to finish</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.2s">
+                        <div class="process-number">1</div>
+                        <div><strong>Meet the robobus</strong> at drop-off or parking</div>
+                    </div>
+                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.3s">
+                        <div class="process-number">2</div>
+                        <div><strong>Check in</strong> via kiosk with optional remote support</div>
+                    </div>
+                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.4s">
+                        <div class="process-number">3</div>
+                        <div><strong>Weigh & tag luggage</strong> with self-service guided steps</div>
+                    </div>
+                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.5s">
+                        <div class="process-number">4</div>
+                        <div><strong>Secure bag storage</strong> in locked compartments with tracking</div>
+                    </div>
+                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s">
+                        <div class="process-number">5</div>
+                        <div><strong>Passenger drop-off</strong> near security entrance</div>
+                    </div>
+                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.7s">
+                        <div class="process-number">6</div>
+                        <div><strong>Robobus luggage delivery</strong> to authorized baggage acceptance point</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How It Works Section End -->
+
+    <!-- Audience Section Start -->
+    <section class="audience-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">For Everyone</h3>
+                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Designed for Real Travelers</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <span class="audience-emoji">👨‍👩‍👧‍👦</span>
+                        <h4>Families</h4>
+                        <p>With multiple bags and young children</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <span class="audience-emoji">👴</span>
+                        <h4>Elderly Passengers</h4>
+                        <p>And people with accessibility needs</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <span class="audience-emoji">💼</span>
+                        <h4>Frequent Travelers</h4>
+                        <p>Who value speed and efficiency</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                        <span class="audience-emoji">🌍</span>
+                        <h4>Peak Season Travelers</h4>
+                        <p>During holidays and high-demand periods</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Audience Section End -->
+
+    <!-- Future Section Start -->
+    <section class="future-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">Roadmap</h3>
+                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Future Extensions</h2>
+                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">This concept can evolve over time</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <h4>Smart Scheduling</h4>
+                        <p>Appointment slots to avoid congestion and optimize flow</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <h4>Digital Identity</h4>
+                        <p>Integration with airport digital identity systems</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <h4>Fleet Dispatch</h4>
+                        <p>Multi-robobus coordination based on real-time demand</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                        <h4>Premium Service</h4>
+                        <p>Concierge mode for business and first-class travelers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Future Section End -->
+
+    <!-- CTA Section Start -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 class="wow animate__animated animate__fadeInUp">Let's pilot a departure experience people will remember.</h2>
+            <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">If your airport, airline, or smart city program is exploring next-generation passenger journeys, this concept is ready for discussion and roadmap planning.</p>
+           
+        </div>
+    </section>
+    <!-- CTA Section End -->
+
+    <!-- Footer Start -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Airport Robobus Concept. Transforming the airport departure experience.</p>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- WOW.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+</body>
+</html>

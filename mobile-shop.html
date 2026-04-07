@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description"
+        content="Mobile Student Shop at Qatar University - Autonomous robobus retail for students, stationary, merch & tech accessories">
+    <meta name="keywords"
+        content="qatar university, autonomous retail, student shop, robobus, campus convenience, contactless payment">
+    <meta name="author" content="Qatar University Innovation Lab">
+
+    <!-- Page Title -->
+    <title>Mobile Student Shop | Qatar University | Autonomous Campus Retail</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        :root {
+            --primary-color: #734bdf;
+            --secondary-color: #1E293B;
+            --accent-color: #734bdf;
+            --text-dark: #0F172A;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --white: #FFFFFF;
+            --campus-gold: #f59e0b;
+            --campus-teal: #0d9488;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-default {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-default:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(115, 75, 223, 0.35);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outlined:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-campus {
+            background: var(--campus-teal);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-campus:hover {
+            background: #0b7b70;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(2, 6, 23, 0.65) 0%, rgba(115, 75, 223, 0.5) 100%), url('./assets/images/bookshop/bookshop-hero.png');
+            background-size: cover;
+            background-position: center 40%;
+            background-repeat: no-repeat;
+            padding: 120px 0 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .page-header-box {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 60px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-header .hero-subtitle {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 650;
+            margin-bottom: 25px;
+            display: inline-block;
+            max-width: 980px;
+            line-height: 1.4;
+            padding: 14px 18px;
+            border-radius: 16px;
+        }
+
+        .page-header .hero-subtitle .accent {
+            color: var(--campus-gold);
+            font-weight: 750;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .promise-badge {
+            display: inline-block;
+            background: rgba(115, 75, 223, 0.25);
+            border-left: 4px solid var(--campus-gold);
+            padding: 20px 40px;
+            margin: 30px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+        }
+
+        .cta-buttons .btn-default,
+        .cta-buttons .btn-outlined {
+            margin: 10px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Feature Section (adapted for product features) */
+        .problem-section {
+            background: var(--bg-light);
+        }
+
+        .problem-item {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--campus-teal);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .problem-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .problem-item .icon {
+            font-size: 40px;
+            color: var(--campus-teal);
+            margin-bottom: 20px;
+        }
+
+        /* Vehicle Layout Section */
+        .idea-section {
+            background: var(--white);
+        }
+
+        .idea-step {
+            text-align: center;
+            padding: 40px 25px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(115, 75, 223, 0.15);
+        }
+
+        .idea-step:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-number {
+            position: relative;
+            font-size: 46px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .idea-step h4 {
+            position: relative;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .idea-step p {
+            position: relative;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* User Journey Storyboard */
+        .storyboard-section {
+            background: var(--bg-light);
+        }
+
+        .story-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .story-image .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
+            background: rgba(115, 75, 223, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .story-content {
+            padding: 40px;
+        }
+
+        .story-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        /* Benefits / Value Section */
+        .benefits-section {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .benefits-section .section-title h2,
+        .benefits-section .section-title h3 {
+            color: var(--white);
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .benefit-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--campus-gold);
+            margin-bottom: 20px;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .benefit-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--campus-gold);
+        }
+
+        /* Process / Operational Steps */
+        .how-section {
+            background: var(--white);
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+            transform: translateX(15px);
+        }
+
+        .process-number {
+            width: 70px;
+            height: 70px;
+            background: var(--campus-teal);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-right: 25px;
+        }
+
+        .process-step:hover .process-number {
+            background: var(--white);
+            color: var(--campus-teal);
+        }
+
+        /* Audience Section */
+        .audience-section {
+            background: var(--bg-light);
+        }
+
+        .audience-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .audience-emoji {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .audience-card h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Future Section */
+        .future-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--campus-teal));
+            color: var(--white);
+        }
+
+        .future-section .section-title h2,
+        .future-section .section-title h3 {
+            color: var(--white);
+        }
+
+        .future-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .future-item h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .future-item p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: #0F172A;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .story-image {
+                height: 250px;
+            }
+
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .process-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">← Mobile Student Shop at University Campus</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#shop">The Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#journey">Student Journey</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tech">Technology</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Partner with Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="page-header">
+        <div class="container">
+            <div class="page-header-box">
+                <h1 class="animate__animated animate__fadeInUp">Your Campus Store<br>on Autonomous Wheels</h1>
+                <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Stationery • University
+                    Merch • Tech Accessories — <span class="accent">Delivered to your lecture hall steps</span></p>
+                <p class="animate__animated animate__fadeInUp animate__delay-2s">The autonomous robobus circulates Qatar
+                    University, bringing essential student items directly to high-footfall zones. Browse, order via
+                    touchscreen or app, and complete contactless payment in under 2 minutes.</p>
+                <div class="promise-badge animate__animated animate__fadeInUp animate__delay-3s">
+                    ⚡ No fixed store needed • 📍 On-demand & scheduled stops • 💳 Tap & go
+                </div>
+                <div class="cta-buttons animate__animated animate__fadeInUp animate__delay-4s">
+                    <a href="#shop" class="btn-default">Explore Vehicle Layout</a>
+                    <a href="#journey" class="btn-campus">Track the Robobus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Offerings & Features Section -->
+    <section id="shop" class="problem-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow animate__animated animate__fadeInUp">What's inside</h3>
+                <h2 class="wow animate__animated animate__fadeInUp">Curated for Student Life</h2>
+                <p class="wow animate__animated animate__fadeInUp">Essentials you need, exactly where you are — from
+                    study aids to QU merch</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow">
+                        <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+                        <h4>Stationery & Study Kits</h4>
+                        <p>Notebooks, pens, highlighters, exam prep bundles — restocked daily.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow">
+                        <div class="icon"><i class="fas fa-tshirt"></i></div>
+                        <h4>University Merchandise</h4>
+                        <p>Official QU hoodies, caps, mugs, and graduation memorabilia.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow">
+                        <div class="icon"><i class="fas fa-headphones"></i></div>
+                        <h4>Tech Accessories</h4>
+                        <p>Charging cables, power banks, USB drives, phone stands, earbuds.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow">
+                        <div class="icon"><i class="fas fa-tags"></i></div>
+                        <h4>Combo Deals & Seasonal Packs</h4>
+                        <p>Exam survival kits, welcome-week bundles, and limited-time offers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow">
+                        <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h4>Digital Ordering Kiosks</h4>
+                        <p>Touchscreens & QR-based ordering — skip the queue entirely.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="problem-item wow">
+                        <div class="icon"><i class="fas fa-chalkboard"></i></div>
+                        <h4>Campus Event Promos</h4>
+                        <p>Digital screens advertising club events, guest lectures, and student discounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Layout & Experience Design -->
+    <section class="idea-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow">Inside the Robobus</h3>
+                <h2 class="wow">Efficient. Modern. Student-First.</h2>
+                <p>Designed for quick stops and seamless shopping between classes</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow">
+                        <div class="step-number">🛒</div>
+                        <h4>Compact Pickup Counter</h4>
+                        <p>Grab pre-ordered items instantly — minimal wait time.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow">
+                        <div class="step-number">📱</div>
+                        <h4>Touchscreen / QR Ordering</h4>
+                        <p>Browse catalog, scan & pay in seconds, skip physical contact.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow">
+                        <div class="step-number">📺</div>
+                        <h4>Digital Promotion Displays</h4>
+                        <p>Real-time updates on new arrivals, flash sales, campus news.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow">
+                        <div class="step-number">📚</div>
+                        <h4>Accessible Shelving</h4>
+                        <p>Eye-level product visibility, clearly categorized for speed.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="idea-step wow">
+                        <div class="step-number">💡</div>
+                        <h4>Comfortable Ambience</h4>
+                        <p>Modern LED lighting, clean finishes, space for 4–6 students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Journey Storyboard -->
+    <section id="journey" class="storyboard-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 class="wow">Student Experience</h3>
+                <h2 class="wow">From Notification to Pickup in Minutes</h2>
+                <p>Seamless retail integrated into campus life</p>
+            </div>
+            <div class="story-item wow">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">1</div><img class="story-img"
+                                src="./assets/images/bookshop/step-1.png"
+                                alt="student notification">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="story-content">
+                            <h3>Spot & Track the Robobus</h3>
+                            <p>Students receive push notifications when the robobus arrives near the library, student
+                                center, or engineering building. Real-time map shows ETA.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="story-item wow">
+                <div class="row">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">2</div><img class="story-img"
+                                src="./assets/images/bookshop/step-2.png"
+                                alt="browsing inside">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="story-content">
+                            <h3>Enter & Browse</h3>
+                            <p>Step into the climate-controlled robobus. Explore clearly labeled sections or scan QR
+                                codes to view the full catalog on your phone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="story-item wow">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">3</div><img class="story-img"
+                                src="./assets/images/bookshop/step-3.png"
+                                alt="touchscreen order">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="story-content">
+                            <h3>Order & Contactless Pay</h3>
+                            <p>Use the onboard touchscreen or mobile app to select items. Tap student ID or credit card
+                                for instant payment — digital receipt sent via app.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="story-item wow">
+                <div class="row">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">4</div><img class="story-img"
+                                src="./assets/images/bookshop/step-4.png"
+                                alt="pickup">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="story-content">
+                            <h3>Pickup & Go</h3>
+                            <p>Collect bagged items at the counter, exit the robobus, and continue to class — saving up
+                                to 20 minutes compared to walking to a fixed store.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Enablers & Operational Model -->
+    <section id="tech" class="benefits-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Powered by Autonomy</h3>
+                <h2>Technology & Operations</h2>
+                <p>Safe, reliable, and always connected</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="benefit-card"><span class="benefit-icon">🚐</span>
+                        <h4>Autonomous Navigation</h4>
+                        <ul class="benefit-list">
+                            <li>Predefined campus routes + remote supervision</li>
+                            <li>LIDAR & camera obstacle detection for crowded walkways</li>
+                            <li>Emergency stop & geofencing around pedestrian zones</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="benefit-card"><span class="benefit-icon">📡</span>
+                        <h4>5G & Real-Time Connectivity</h4>
+                        <ul class="benefit-list">
+                            <li>Live inventory sync with central depot</li>
+                            <li>Instant payment processing & digital receipts</li>
+                            <li>Fleet management dashboard for campus operations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="benefit-card"><span class="benefit-icon">📦</span>
+                        <h4>Inventory & Restocking</h4>
+                        <ul class="benefit-list">
+                            <li>Weight sensors + AI restock alerts</li>
+                            <li>Daily overnight restocking at QU central depot</li>
+                            <li>Real-time stock visibility for students via app</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="benefit-card"><span class="benefit-icon">🧼</span>
+                        <h4>Hygiene & Maintenance</h4>
+                        <ul class="benefit-list">
+                            <li>Touchscreen and counter sanitized between routes</li>
+                            <li>Autonomous system diagnostics & remote updates</li>
+                            <li>Compliance with campus safety regulations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model & Revenue Streams -->
+    <section class="how-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Sustainable Retail Innovation</h3>
+                <h2>Business Model</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="process-step">
+                        <div class="process-number">💰</div>
+                        <div><strong>Direct-to-Consumer Sales</strong> – High-margin student essentials & merch</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">🤝</div>
+                        <div><strong>Supplier Partnerships</strong> – Local retailers & university merchandise providers
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">📢</div>
+                        <div><strong>Sponsored Promotions</strong> – Featured product placements & campus event ads
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">🎓</div>
+                        <div><strong>Seasonal & Event Bundles</strong> – Exam weeks, orientation, graduation pop-ups
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">📊</div>
+                        <div><strong>Data Insights (opt-in)</strong> – Anonymous purchasing trends for inventory
+                            optimization</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stakeholders & Audience -->
+    <section class="audience-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Collaborative Ecosystem</h3>
+                <h2>Who We Serve</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card"><span class="audience-emoji">🎓</span>
+                        <h4>Students</h4>
+                        <p>Instant access to study essentials without leaving campus core</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card"><span class="audience-emoji">👩‍🏫</span>
+                        <h4>Faculty & Staff</h4>
+                        <p>Quick pickups between lectures & meetings</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card"><span class="audience-emoji">🏫</span>
+                        <h4>University Admin</h4>
+                        <p>Enhanced campus services & modern retail footprint</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="audience-card"><span class="audience-emoji">📱</span>
+                        <h4>Payment & Tech Partners</h4>
+                        <p>Seamless integration with student ID systems & wallets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scalability & Future Extensions -->
+    <section class="future-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Roadmap</h3>
+                <h2>Scaling Across Qatar</h2>
+                <p>From QU pilot to nationwide campus mobility</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item">
+                        <h4>🚀 Multi-Campus Expansion</h4>
+                        <p>Education City, Doha Institute, and other universities</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item">
+                        <h4>🤖 AI Predictive Inventory</h4>
+                        <p>Machine learning for demand forecasting per route & time</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item">
+                        <h4>📲 On-Demand Routing</h4>
+                        <p>Students request robobus via app for group study spots</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="future-item">
+                        <h4>🎉 Event-Based Deployments</h4>
+                        <p>Sporting events, club fairs, and graduation weeks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 class="wow">Ready to bring autonomous retail to your campus?</h2>
+            <p class="wow">Partner with Qatar University Innovation Lab — pilot the future of student convenience,
+                reduce fixed retail costs, and enhance campus life with zero-emission mobility.</p>
+            <a href="#" class="btn-default" style="background: var(--campus-gold); color:#1e293b;">Contact Campus
+                Innovation Office →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Mobile Student Shop — Qatar University | Autonomous Retail for Smarter Campuses</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>new WOW().init();</script>
+</body>
+
+</html>

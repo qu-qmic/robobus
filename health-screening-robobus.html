@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Screening Robobus | Mobile Mini-Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --medical-blue: #0277bd;
+            --health-teal: #00897b;
+            --clinic-green: #43a047;
+            --care-cyan: #26c6da;
+            --vital-red: #e53935;
+            --clean-white: #ffffff;
+            --warm-white: #faf8f3;
+            --pearl: #f5f2ed;
+            --charcoal: #2c2c2c;
+            --light-gray: #eceff1;
+            --med-silver: #b0bec5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(2, 119, 189, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--medical-blue);
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--medical-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #e0f2f1 50%, #e1f5fe 100%);
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(2, 119, 189, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 137, 123, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--medical-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .description {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            color: var(--charcoal);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border: 2px solid var(--medical-blue);
+        }
+
+        .btn-primary {
+            background: var(--medical-blue);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--health-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(2, 119, 189, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--medical-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--medical-blue);
+            color: var(--warm-white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--care-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--medical-blue);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.85;
+        }
+
+        /* Concept Section */
+        .concept {
+            background: linear-gradient(to bottom, var(--warm-white), var(--pearl));
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .concept-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(2, 119, 189, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--medical-blue), var(--health-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .concept-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(2, 119, 189, 0.1);
+        }
+
+        .concept-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--medical-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .concept-card p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--medical-blue);
+            color: var(--warm-white);
+        }
+
+        .features .section-tag {
+            color: var(--care-cyan);
+        }
+
+        .features .section-title {
+            color: var(--warm-white);
+        }
+
+        .features .section-description {
+            color: var(--light-gray);
+            opacity: 0.95;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--warm-white);
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Journey Section */
+        .journey {
+            background: var(--warm-white);
+        }
+
+        .journey-steps {
+            margin-top: 4rem;
+        }
+
+        .journey-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .journey-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .journey-step:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .journey-image {
+            background: linear-gradient(135deg, var(--golf-green-light), var(--fairway));
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .journey-image.has-photo {
+            background: none;
+        }
+
+        .journey-image.has-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .journey-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 40px,
+                    rgba(255, 255, 255, 0.03) 80px);
+        }
+
+        .journey-image.has-photo::before {
+            display: none;
+        }
+
+        .journey-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--golf-green);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .journey-content .step-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .journey-content p {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: linear-gradient(135deg, #f5f2ed 0%, #e0f2f1 100%);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--care-cyan);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(2, 119, 189, 0.15);
+        }
+
+        .tech-item h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--medical-blue);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Actors Section */
+        .actors {
+            background: var(--warm-white);
+        }
+
+        .actors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .actors-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(2, 119, 189, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .actors-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(2, 119, 189, 0.1);
+        }
+
+        .actors-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--medical-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .actors-list {
+            list-style: none;
+        }
+
+        .actors-list li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .actors-list li::before {
+            content: '⚕️';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--charcoal);
+            color: var(--warm-white);
+        }
+
+        .benefits .section-title {
+            color: var(--warm-white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--care-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .benefit-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--care-cyan);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--medical-blue) 0%, var(--health-teal) 100%);
+            color: var(--warm-white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .final-cta .btn {
+            border-color: var(--care-cyan);
+        }
+
+        .final-cta .btn-primary {
+            background: var(--care-cyan);
+            color: var(--charcoal);
+        }
+
+        .final-cta .btn-primary:hover {
+            background: var(--clinic-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(38, 198, 218, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(38, 198, 218, 0.2);
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .journey-step {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">← HEALTH SCREENING</a>
+            <ul class="nav-links">
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#technology">Technology</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Healthcare That Comes to You</h1>
+            <p class="subtitle">Autonomous Health Screening / Mini-Clinic</p>
+            <p class="description">
+                A self-driving mobile health unit equipped with essential medical devices performing routine screenings and check-ups. Bringing preventive healthcare directly to campuses, workplaces, and communities with on-demand accessibility and professional care.
+            </p>
+            <div class="cta-buttons">
+                <a href="#journey" class="btn btn-primary">Explore the Journey</a>
+                <a href="#features" class="btn btn-secondary">See Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="concept" id="concept">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Scenario Description</div>
+                <h2 class="section-title">Mobile Preventive Healthcare</h2>
+                <p class="section-description">
+                    Addressing uneven access to routine healthcare with an autonomous mobile clinic that brings essential screenings directly to where people work, study, and live.
+                </p>
+            </div>
+            <div class="concept-grid">
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🏥</div>
+                    <h4>Compact Clinical Environment</h4>
+                    <p>Fully equipped interior designed for privacy, hygiene, and professional medical care with certified screening equipment</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🚗</div>
+                    <h4>Autonomous Operation</h4>
+                    <p>Self-driving capability enables scheduled routes and on-demand deployment to campuses, industrial zones, and communities</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">💉</div>
+                    <h4>Essential Screenings</h4>
+                    <p>Blood pressure, heart rate, oxygen saturation, temperature, weight, and basic blood tests for early detection</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">📱</div>
+                    <h4>Digital Integration</h4>
+                    <p>Secure check-in, instant digital results, and seamless integration with electronic health records</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">👨‍⚕️</div>
+                    <h4>Teleconsultation Support</h4>
+                    <p>Optional remote medical supervision and real-time consultation with healthcare professionals</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🔒</div>
+                    <h4>Privacy & Compliance</h4>
+                    <p>Full compliance with healthcare data protection regulations and medical device certification standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Internal Vehicle Layout</div>
+                <h2 class="section-title">Clinical Excellence on Wheels</h2>
+                <p class="section-description">
+                    Every element designed to deliver professional healthcare services with comfort and efficiency
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Digital Check-in Station</h3>
+                    <p>Small reception area with secure identification and patient registration systems</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🩺</div>
+                    <h3>Screening Stations</h3>
+                    <p>One or two equipped stations with certified medical devices for comprehensive vital signs monitoring</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">💺</div>
+                    <h3>Patient Comfort</h3>
+                    <p>Comfortable seating with adjustable lighting ensuring a calm, professional environment</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3>Guided Process</h3>
+                    <p>Onboard displays guiding users through each screening step with clear instructions</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🧪</div>
+                    <h3>Basic Diagnostics</h3>
+                    <p>Capability for glucose and cholesterol testing with immediate digital results</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🧼</div>
+                    <h3>Medical-Grade Hygiene</h3>
+                    <p>Strict sanitation protocols and medical waste management systems ensuring safety</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">User Experience</div>
+                <h2 class="section-title">Simple, Efficient, Professional</h2>
+                <p class="section-description">
+                    A streamlined healthcare experience from check-in to results
+                </p>
+            </div>
+            <div class="journey-steps">
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/health/step-1.png" alt="Secure Check-in">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Secure Check-in</h3>
+                        <p>Enter the mobile clinic and complete digital check-in using secure identification at the reception station.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/health/step-2.png" alt="Guided Screening">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Guided Screening</h3>
+                        <p>Follow onboard displays through comprehensive vital signs screening including blood pressure, heart rate, oxygen levels, temperature, and weight.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/health/step-3.png" alt="Optional Diagnostics">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Optional Diagnostics</h3>
+                        <p>If needed, receive basic blood tests for glucose and cholesterol levels with medical-grade testing equipment.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/health/step-4.png" alt="Instant Digital Results">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Instant Digital Results</h3>
+                        <p>Receive immediate digital results securely transmitted to your personal health records and mobile device.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/health/step-5.png" alt="Teleconsultation (Optional)">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Teleconsultation (Optional)</h3>
+                        <p>Connect with healthcare professionals remotely for result interpretation, advice, or follow-up recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Technology Enablers</div>
+                <h2 class="section-title">Advanced Medical Technology</h2>
+                <p class="section-description">
+                    Cutting-edge systems ensuring safe, accurate, and compliant healthcare delivery
+                </p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <h4>Autonomous Driving</h4>
+                    <p>Safe navigation and precise positioning in urban, campus, and industrial environments with reliable operation</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Medical IoT Devices</h4>
+                    <p>Integrated, certified screening equipment meeting all medical device standards and regulatory requirements</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Secure Connectivity</h4>
+                    <p>Protected transmission of medical data to backend healthcare platforms with end-to-end encryption</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Edge & Cloud Platforms</h4>
+                    <p>Advanced data processing, analytics, and seamless integration with electronic health records (EHRs)</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Cybersecurity Controls</h4>
+                    <p>Comprehensive privacy protection and full compliance with healthcare data protection regulations</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Telemedicine Integration</h4>
+                    <p>Real-time video consultation capabilities connecting patients with remote medical professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actors Section -->
+    <section class="actors">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Key Actors</div>
+                <h2 class="section-title">Serving Healthcare Ecosystem</h2>
+                <p class="section-description">
+                    Connecting patients, providers, and stakeholders in preventive care delivery
+                </p>
+            </div>
+            <div class="actors-grid">
+                <div class="actors-card fade-in">
+                    <h4>End Users</h4>
+                    <ul class="actors-list">
+                        <li>Employees in industrial zones</li>
+                        <li>University campus students</li>
+                        <li>Residents in underserved areas</li>
+                        <li>Event visitors and attendees</li>
+                        <li>Corporate wellness program participants</li>
+                    </ul>
+                </div>
+                <div class="actors-card fade-in">
+                    <h4>Healthcare Providers</h4>
+                    <ul class="actors-list">
+                        <li>Clinics and medical centers</li>
+                        <li>Hospitals and health systems</li>
+                        <li>Occupational health services</li>
+                        <li>Primary care physicians</li>
+                        <li>Telemedicine practitioners</li>
+                    </ul>
+                </div>
+                <div class="actors-card fade-in">
+                    <h4>Stakeholders</h4>
+                    <ul class="actors-list">
+                        <li>Public health authorities</li>
+                        <li>Employers and HR departments</li>
+                        <li>Insurance providers</li>
+                        <li>Smart city operators</li>
+                        <li>Educational institutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Key Benefits & Impact</div>
+                <h2 class="section-title">Transforming Healthcare Access</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <h4>Improved Access</h4>
+                    <p>Brings preventive healthcare and early diagnosis directly to underserved populations and remote areas</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <h4>Reduced Load</h4>
+                    <p>Decreases burden on traditional clinics and emergency services through proactive screening</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <h4>Cost Efficiency</h4>
+                    <p>Scalable and flexible healthcare delivery model reducing infrastructure and operational costs</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <h4>Early Detection</h4>
+                    <p>Identifies health issues before they become serious, improving outcomes and reducing treatment costs</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <h4>Smart City Alignment</h4>
+                    <p>Strong integration with digital health strategies and smart city healthcare initiatives</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <h4>Population Health</h4>
+                    <p>Enables large-scale preventive care programs and continuous health monitoring of communities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Healthcare Delivery?</h2>
+            <p>Join the future of preventive medicine with mobile health screening that brings professional medical services directly to your employees, students, and community members. Perfect for organizations committed to wellness and early intervention.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Partner With Us</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Health Screening Robobus. Bringing preventive healthcare to communities.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays
+        document.querySelectorAll('.concept-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.feature').forEach((feature, index) => {
+            feature.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.tech-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.08}s`;
+        });
+
+        document.querySelectorAll('.actors-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.benefit-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>

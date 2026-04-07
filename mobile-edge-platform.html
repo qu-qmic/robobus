@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Edge Platform | Computing & Energy On-Demand</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tech-blue: #0a4d8f;
+            --tech-blue-dark: #073861;
+            --electric-cyan: #00d4ff;
+            --energy-green: #00e676;
+            --compute-purple: #7c4dff;
+            --steel: #546e7a;
+            --pearl-white: #faf8f3;
+            --warm-white: #f5f2ed;
+            --charcoal: #1a1a1a;
+            --silver: #b0bec5;
+            --accent-orange: #ff6f00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--pearl-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 77, 143, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--tech-blue);
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--tech-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--pearl-white) 0%, var(--warm-white) 50%, #e3f2fd 100%);
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(10, 77, 143, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 77, 255, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--tech-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .description {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            color: var(--charcoal);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border: 2px solid var(--tech-blue);
+        }
+
+        .btn-primary {
+            background: var(--tech-blue);
+            color: var(--pearl-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--tech-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(10, 77, 143, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--tech-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--tech-blue);
+            color: var(--pearl-white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--electric-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--tech-blue);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.85;
+        }
+
+        /* Challenge Section */
+        .challenge {
+            background: linear-gradient(to bottom, var(--pearl-white), var(--warm-white));
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .challenge-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(10, 77, 143, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--electric-cyan), var(--compute-purple));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .challenge-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(10, 77, 143, 0.1);
+        }
+
+        .challenge-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--tech-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .challenge-card p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--tech-blue);
+            color: var(--pearl-white);
+        }
+
+        .solution .section-tag {
+            color: var(--electric-cyan);
+        }
+
+        .solution .section-title {
+            color: var(--pearl-white);
+        }
+
+        .solution .section-description {
+            color: var(--warm-white);
+            opacity: 0.95;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--pearl-white);
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            background: var(--warm-white);
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .use-case {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--energy-green);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .use-case:nth-child(2) {
+            border-left-color: var(--compute-purple);
+        }
+
+        .use-case:nth-child(3) {
+            border-left-color: var(--electric-cyan);
+        }
+
+        .use-case:nth-child(4) {
+            border-left-color: var(--accent-orange);
+        }
+
+        .use-case:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(10, 77, 143, 0.15);
+        }
+
+        .use-case h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--tech-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .use-case p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: linear-gradient(135deg, #f5f2ed 0%, #e3f2fd 100%);
+        }
+
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--electric-cyan);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(10, 77, 143, 0.15);
+        }
+
+        .tech-item h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--tech-blue);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Impact Section */
+        .impact {
+            background: var(--charcoal);
+            color: var(--pearl-white);
+        }
+
+        .impact .section-title {
+            color: var(--pearl-white);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .impact-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--electric-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .impact-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .impact-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .impact-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: var(--electric-cyan);
+            font-weight: bold;
+        }
+
+        /* Business Model Section */
+        .business-model {
+            background: var(--pearl-white);
+        }
+
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .revenue-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(10, 77, 143, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .revenue-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--electric-cyan);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .revenue-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .revenue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(10, 77, 143, 0.1);
+        }
+
+        .revenue-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--tech-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .revenue-card p {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--tech-blue) 0%, var(--tech-blue-dark) 100%);
+            color: var(--pearl-white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .final-cta .btn {
+            border-color: var(--electric-cyan);
+        }
+
+        .final-cta .btn-primary {
+            background: var(--electric-cyan);
+            color: var(--charcoal);
+        }
+
+        .final-cta .btn-primary:hover {
+            background: var(--energy-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--pearl-white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">← MOBILE EDGE</a>
+            <ul class="nav-links">
+                <li><a href="#challenge">Challenge</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#use-cases">Use Cases</a></li>
+                <li><a href="#technology">Technology</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Computing & Energy. On-Demand.</h1>
+            <p class="subtitle">Mobile Edge Computing & Energy Service Platform</p>
+            <p class="description">
+                Transform infrastructure delivery with intelligent mobile platforms that bring high-performance computing and energy resources directly where they're needed. Flexible, scalable, and responsive to real-time demand.
+            </p>
+            <div class="cta-buttons">
+                <a href="#use-cases" class="btn btn-primary">Explore Use Cases</a>
+                <a href="#solution" class="btn btn-secondary">See Innovation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="challenge" id="challenge">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Opportunity & Market Motivation</div>
+                <h2 class="section-title">The Dual Infrastructure Challenge</h2>
+                <p class="section-description">
+                    Rapid growth in connected vehicles, smart cities, and AI-driven services creates unprecedented demand for flexible infrastructure.
+                </p>
+            </div>
+            <div class="challenge-grid">
+                <div class="challenge-card fade-in">
+                    <h4>Edge Computing Demand</h4>
+                    <p>Data-intensive applications require low-latency processing that fixed infrastructure can't always provide</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>EV Charging Pressure</h4>
+                    <p>Electric vehicle adoption strains charging infrastructure in high-demand and underserved areas</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Static Infrastructure Limits</h4>
+                    <p>Fixed installations cannot respond dynamically to fluctuating compute and energy demands</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Peak Demand Challenges</h4>
+                    <p>Events and emergencies create temporary spikes that permanent infrastructure struggles to handle</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Underserved Locations</h4>
+                    <p>Remote or temporary sites lack access to both computational resources and energy supply</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Capital Investment Barriers</h4>
+                    <p>High costs of deploying extensive fixed infrastructure across all potential demand locations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Proposed Concept</div>
+                <h2 class="section-title">Resources On-The-Move</h2>
+                <p class="section-description">
+                    Mobile platforms equipped with GPU-based computing and high-capacity energy storage, delivering both compute power and electrical energy dynamically.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">🖥️</div>
+                    <h3>Edge Computing Power</h3>
+                    <p>High-performance GPU capabilities for AI workloads, video analytics, and real-time processing</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🔋</div>
+                    <h3>Energy Storage Systems</h3>
+                    <p>High-capacity batteries enabling power delivery, EV charging, and emergency backup</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Autonomous Mobility</h3>
+                    <p>Dynamic routing and deployment to match real-time demand patterns</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">📡</div>
+                    <h3>5G Connectivity</h3>
+                    <p>Seamless communication with vehicles, infrastructure, and cloud platforms</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Intelligent Management</h3>
+                    <p>Smart energy distribution and compute resource optimization algorithms</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Universal Integration</h3>
+                    <p>Platform APIs for smart city, mobility, and enterprise application integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Service Scenarios</div>
+                <h2 class="section-title">Real-World Applications</h2>
+                <p class="section-description">
+                    Flexible deployment across diverse scenarios where compute and energy resources are needed
+                </p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case fade-in">
+                    <h4>On-Demand EV Charging</h4>
+                    <p>EV drivers request charging via mobile app. The mobile unit navigates to their location and provides emergency or supplemental charging service.</p>
+                </div>
+                <div class="use-case fade-in">
+                    <h4>Smart City Applications</h4>
+                    <p>Deployed to high-traffic areas to support real-time AI applications such as traffic analytics, video processing, and urban monitoring.</p>
+                </div>
+                <div class="use-case fade-in">
+                    <h4>Large Events Support</h4>
+                    <p>Provides temporary edge computing capacity for AR/VR services, crowd monitoring, media streaming, and enhanced visitor experiences.</p>
+                </div>
+                <div class="use-case fade-in">
+                    <h4>Emergency Response</h4>
+                    <p>Supplies backup power to critical infrastructure or devices during emergencies and disaster situations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Technology Enablers</div>
+                <h2 class="section-title">Advanced Infrastructure</h2>
+                <p class="section-description">
+                    Cutting-edge systems working in harmony to deliver flexible, responsive services
+                </p>
+            </div>
+            <div class="tech-list">
+                <div class="tech-item fade-in">
+                    <h4>GPU-Based Edge Computing</h4>
+                    <p>High-performance processors supporting AI workloads, computer vision, video analytics, and real-time data processing</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Energy Storage Systems</h4>
+                    <p>High-capacity lithium-ion or solid-state batteries with fast charging capabilities and intelligent thermal management</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Autonomous Mobility</h4>
+                    <p>Self-driving capabilities with dynamic routing, obstacle avoidance, and fleet coordination systems</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>IoT & 5G Connectivity</h4>
+                    <p>Ultra-low latency communication infrastructure connecting vehicles, edge nodes, and cloud platforms</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Energy Management</h4>
+                    <p>Intelligent distribution algorithms optimizing power delivery, charging speeds, and battery health</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Platform APIs</h4>
+                    <p>Robust integration interfaces for smart city platforms, enterprise applications, and third-party services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section class="business-model">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Business Model</div>
+                <h2 class="section-title">Revenue Streams</h2>
+                <p class="section-description">
+                    Multiple value-generating opportunities across the infrastructure ecosystem
+                </p>
+            </div>
+            <div class="revenue-grid">
+                <div class="revenue-card fade-in">
+                    <h4>Pay-Per-Use Charging</h4>
+                    <p>On-demand pricing for EV charging services with tiered rates based on speed and location</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>Edge Computing Services</h4>
+                    <p>Subscription or pay-per-compute models for processing power and data analytics capabilities</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>Enterprise Contracts</h4>
+                    <p>Service agreements with municipalities, corporations, and event organizers for dedicated resources</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>Telecom Partnerships</h4>
+                    <p>Collaboration with cloud and connectivity providers for distributed edge service delivery</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>Emergency Services</h4>
+                    <p>Premium pricing for backup power and critical infrastructure support during disasters</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Impact & Benefits</div>
+                <h2 class="section-title">Transforming Infrastructure</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">👥</div>
+                    <h3>For Users</h3>
+                    <ul class="impact-list">
+                        <li>Convenient access to charging anywhere, anytime</li>
+                        <li>High-performance computing without infrastructure investment</li>
+                        <li>Reliable emergency power when needed most</li>
+                        <li>Reduced range anxiety for EV drivers</li>
+                        <li>Seamless service through mobile apps</li>
+                    </ul>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">🏙️</div>
+                    <h3>For Cities</h3>
+                    <ul class="impact-list">
+                        <li>More resilient and adaptive infrastructure</li>
+                        <li>Reduced capital investment in fixed assets</li>
+                        <li>Support for smart city applications</li>
+                        <li>Enhanced emergency preparedness</li>
+                        <li>Data-driven optimization opportunities</li>
+                    </ul>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">🏢</div>
+                    <h3>For Businesses</h3>
+                    <ul class="impact-list">
+                        <li>Flexible, scalable access to edge resources</li>
+                        <li>Deploy compute power for temporary needs</li>
+                        <li>Support AI and IoT innovation</li>
+                        <li>Reduced infrastructure overhead</li>
+                        <li>Accelerated digital transformation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Deploy Flexible Infrastructure?</h2>
+            <p>Join the future of distributed computing and energy with mobile platforms that adapt to real-time demand. Perfect for smart cities, enterprises, and infrastructure operators seeking scalable, responsive solutions.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Partner With Us</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Mobile Edge Platform. Delivering computing and energy on-demand.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays
+        document.querySelectorAll('.challenge-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.feature').forEach((feature, index) => {
+            feature.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.use-case').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.tech-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.08}s`;
+        });
+
+        document.querySelectorAll('.revenue-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>

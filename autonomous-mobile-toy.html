@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toy Robobus | Mobile Toy Store & Soft Play Experience</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --toy-red: #e53935;
+            --play-blue: #1e88e5;
+            --fun-yellow: #fdd835;
+            --happy-orange: #fb8c00;
+            --joy-purple: #8e24aa;
+            --soft-pink: #f48fb1;
+            --sky-blue: #81d4fa;
+            --warm-white: #faf8f3;
+            --pearl: #f5f2ed;
+            --charcoal: #2c2c2c;
+            --soft-gray: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(229, 57, 53, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--toy-red);
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--toy-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #fff3e0 50%, #f3e5f5 100%);
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(229, 57, 53, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(30, 136, 229, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(253, 216, 53, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--toy-red);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .description {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            color: var(--charcoal);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border: 2px solid var(--toy-red);
+        }
+
+        .btn-primary {
+            background: var(--toy-red);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--happy-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(229, 57, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--toy-red);
+        }
+
+        .btn-secondary:hover {
+            background: var(--toy-red);
+            color: var(--warm-white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--happy-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--toy-red);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.85;
+        }
+
+        /* Concept Section */
+        .concept {
+            background: linear-gradient(to bottom, var(--warm-white), var(--pearl));
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .concept-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(229, 57, 53, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--toy-red), var(--play-blue), var(--fun-yellow));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .concept-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(229, 57, 53, 0.1);
+        }
+
+        .concept-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--toy-red);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .concept-card p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, var(--play-blue) 0%, var(--joy-purple) 100%);
+            color: var(--warm-white);
+        }
+
+        .features .section-tag {
+            color: var(--fun-yellow);
+        }
+
+        .features .section-title {
+            color: var(--warm-white);
+        }
+
+        .features .section-description {
+            color: var(--sky-blue);
+            opacity: 0.95;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--warm-white);
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Journey Section */
+        .journey {
+            background: var(--warm-white);
+        }
+
+        .journey-steps {
+            margin-top: 4rem;
+        }
+
+        .journey-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .journey-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .journey-step:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .journey-image {
+            background: linear-gradient(135deg, var(--golf-green-light), var(--fairway));
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .journey-image.has-photo {
+            background: none;
+        }
+
+        .journey-image.has-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .journey-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 40px,
+                    rgba(255, 255, 255, 0.03) 80px);
+        }
+
+        .journey-image.has-photo::before {
+            display: none;
+        }
+
+        .journey-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--golf-green);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .journey-content .step-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .journey-content p {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: linear-gradient(135deg, #f5f2ed 0%, #fff3e0 100%);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--play-blue);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(229, 57, 53, 0.15);
+        }
+
+        .tech-item h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--toy-red);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Target Section */
+        .target {
+            background: var(--warm-white);
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .target-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(229, 57, 53, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .target-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(229, 57, 53, 0.1);
+        }
+
+        .target-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--toy-red);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .target-list {
+            list-style: none;
+        }
+
+        .target-list li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .target-list li::before {
+            content: '🎈';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        /* Value Section */
+        .value {
+            background: var(--charcoal);
+            color: var(--warm-white);
+        }
+
+        .value .section-title {
+            color: var(--warm-white);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--fun-yellow);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .value-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--fun-yellow);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--toy-red) 0%, var(--happy-orange) 100%);
+            color: var(--warm-white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .final-cta .btn {
+            border-color: var(--fun-yellow);
+        }
+
+        .final-cta .btn-primary {
+            background: var(--fun-yellow);
+            color: var(--charcoal);
+        }
+
+        .final-cta .btn-primary:hover {
+            background: var(--play-blue);
+            color: var(--warm-white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(253, 216, 53, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(253, 216, 53, 0.2);
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .journey-types {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">← TOY ROBOBUS</a>
+            <ul class="nav-links">
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#technology">Technology</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Play Comes to You</h1>
+            <p class="subtitle">Mobile Toy Store & Soft Play Experience</p>
+            <p class="description">
+                A magical autonomous vehicle bringing age-appropriate toys and safe play environments directly to parks
+                and homes across Qatar. Where children explore, play, and discover while parents shop in comfort.
+            </p>
+            <div class="cta-buttons">
+                <a href="#journey" class="btn btn-primary">Explore the Journey</a>
+                <a href="#features" class="btn btn-secondary">See Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="concept" id="concept">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Scenario Description</div>
+                <h2 class="section-title">Mobile Play & Discovery</h2>
+                <p class="section-description">
+                    A self-driving vehicle combining toy retail with hands-on play experiences, creating joyful moments
+                    for children and convenience for families.
+                </p>
+            </div>
+            <div class="concept-grid">
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🧸</div>
+                    <h4>Interactive Toy Display</h4>
+                    <p>Shelves showcasing educational toys, outdoor play items, crafts, and age-appropriate selections
+                        for children 0-12 years</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🏰</div>
+                    <h4>Soft Play Zone</h4>
+                    <p>Safe play area for ages 6 months to 5 years with foam blocks, climbing shapes, tunnels, and
+                        interactive musical toys</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🎮</div>
+                    <h4>Play Stations</h4>
+                    <p>Designated spaces where children can engage with select toys before purchase, enabling informed
+                        decisions</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🪑</div>
+                    <h4>Parent Comfort Area</h4>
+                    <p>Seating with clear visibility for supervision, shade, cooling, and stroller-friendly access for
+                        family comfort</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🚗</div>
+                    <h4>Autonomous Mobility</h4>
+                    <p>Safe navigation to parks and residential areas, bringing play experiences directly to families
+                    </p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🏡</div>
+                    <h4>Home Visit Service</h4>
+                    <p>Private bookings for extended play sessions in familiar home environments with personalized
+                        recommendations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Vehicle Layout & Design</div>
+                <h2 class="section-title">Designed for Play & Discovery</h2>
+                <p class="section-description">
+                    Every element thoughtfully crafted to delight children and provide peace of mind for parents
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">📚</div>
+                    <h3>Curated Selection</h3>
+                    <p>Age-appropriate toys including educational items, outdoor play gear, crafts, and creative tools
+                        from trusted brands</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🧼</div>
+                    <h3>Hygiene & Safety</h3>
+                    <p>Toy sanitization between sessions, cleaned soft play surfaces, and clear safety guidelines for
+                        parents</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">👀</div>
+                    <h3>Parent Visibility</h3>
+                    <p>Observation areas positioned for easy supervision with comfortable seating and clear sightlines
+                        to play zones</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">☀️</div>
+                    <h3>Climate Comfort</h3>
+                    <p>Shade, cooling systems, and weather protection ensuring comfortable experiences in all conditions
+                    </p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Digital Integration</h3>
+                    <p>Mobile app for tracking, booking, loyalty rewards, and receiving personalized product
+                        recommendations</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">✨</div>
+                    <h3>AR Experiences</h3>
+                    <p>Augmented reality features showing toys in action and enhancing storytelling around products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">User Experience</div>
+                <h2 class="section-title">Two Ways to Play</h2>
+                <p class="section-description">
+                    Choose between park visits for community play or private home sessions for personalized experiences
+                </p>
+            </div>
+            <div class="journey-steps">
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/toy/step-1.png" alt="Discover & Tracking">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Discover & Tracking</h3>
+                        <p>Families receive real-time notifications via the mobile app as the Toy Hub Robobus enters the park. GPS tracking shows estimated arrival times at designated "Play Stops"</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/toy/step-2.png" alt="Welcome & Entry">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Welcome & Entry</h3>
+                        <p>The autonomous vehicle docks safely. Families enter a climate-controlled, vibrant interior featuring curated showcases of educational and outdoor toys</p>
+                    </div>
+                </div>
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/toy/step-3.png" alt="Interactive Play & Exploration">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Interactive Play & Exploration</h3>
+                        <p>Children head to interactive play stations for hands-on testing or enjoy the Soft Play Zone’s tunnels and sensory toys in a sanitized environment
+                        </p>
+                    </div>
+                </div>
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/toy/step-4.png" alt="Parent Observation & Consultation">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Parent Observation & Consultation</h3>
+                        <p>Parents relax in a shaded area with clear visibility of their children. Experts provide advice on developmental toys tailored to specific goals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Technology Enablers</div>
+                <h2 class="section-title">Smart Play Technology</h2>
+                <p class="section-description">
+                    Advanced systems ensuring safe, engaging, and personalized play experiences
+                </p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <h4>Autonomous Navigation</h4>
+                    <p>Safe movement within park boundaries and residential areas ensuring smooth, reliable operation
+                    </p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Mobile App Platform</h4>
+                    <p>Real-time vehicle tracking, appointment scheduling, loyalty rewards, and digital purchase
+                        capabilities</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Interactive Screens</h4>
+                    <p>Touchscreen displays providing toy information, educational content, events, and promotional
+                        offers</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Augmented Reality</h4>
+                    <p>AR experiences allowing children to see toys in action and enhanced storytelling around products
+                    </p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Safety Systems</h4>
+                    <p>Monitoring systems, sanitization tracking, and safety compliance for child-friendly operations
+                    </p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Analytics Engine</h4>
+                    <p>Data-driven insights on play patterns, preferences, and engagement for personalized
+                        recommendations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Customers Section -->
+    <section class="target">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Target Customers</div>
+                <h2 class="section-title">Serving Families & Communities</h2>
+                <p class="section-description">
+                    Bringing joy to children and convenience to families across Qatar
+                </p>
+            </div>
+            <div class="target-grid">
+                <div class="target-card fade-in">
+                    <h4>End Users</h4>
+                    <ul class="target-list">
+                        <li>Children aged 0-12 years</li>
+                        <li>Families with young children</li>
+                        <li>Parents seeking play experiences</li>
+                        <li>Park visitors and community members</li>
+                        <li>Residential compound families</li>
+                    </ul>
+                </div>
+                <div class="target-card fade-in">
+                    <h4>Business Clients</h4>
+                    <ul class="target-list">
+                        <li>Toy manufacturers and brands</li>
+                        <li>Educational product companies</li>
+                        <li>Local artisans and craftspeople</li>
+                        <li>Children's entertainment brands</li>
+                        <li>Event organizers</li>
+                    </ul>
+                </div>
+                <div class="target-card fade-in">
+                    <h4>Stakeholders</h4>
+                    <ul class="target-list">
+                        <li>Park authorities and management</li>
+                        <li>Community organizations</li>
+                        <li>Event organizers and planners</li>
+                        <li>Local schools and educators</li>
+                        <li>Municipal family programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="value">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Value Proposition</div>
+                <h2 class="section-title">Why Toy Robobus</h2>
+            </div>
+            <div class="value-grid">
+                <div class="value-card fade-in">
+                    <h4>Convenience</h4>
+                    <p>Brings toys and play experiences directly to families, eliminating trips to crowded malls and
+                        stores</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Try Before Buy</h4>
+                    <p>Children can interact with toys before purchase, ensuring products match interests and
+                        developmental stages</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Community Engagement</h4>
+                    <p>Creates social play opportunities and community hubs for families with shared interests</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Educational Focus</h4>
+                    <p>Encourages outdoor play and experiential learning through carefully curated toy selections</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Flexible Options</h4>
+                    <p>Choose between spontaneous park visits or scheduled private home sessions based on family needs
+                    </p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Trust Building</h4>
+                    <p>Introduces families to autonomous technology through safe, family-focused use cases</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Bring Joy to Families?</h2>
+            <p>Join the future of family retail and entertainment with an autonomous platform that creates memorable
+                play experiences while making toy shopping convenient and engaging for parents and delightful for
+                children.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Partner With Us</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Toy Robobus. Bringing play and discovery to families everywhere.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays
+        document.querySelectorAll('.concept-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.feature').forEach((feature, index) => {
+            feature.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.tech-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.08}s`;
+        });
+
+        document.querySelectorAll('.target-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.value-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+
+</html>

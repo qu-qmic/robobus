@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Qatar AR/VR | Immersive Autonomous Tourism Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --qatar-maroon: #8b1538;
+            --qatar-maroon-dark: #6b0f2a;
+            --desert-sand: #c9a961;
+            --desert-gold: #d4a76a;
+            --pearl-white: #faf8f3;
+            --warm-white: #f5f2ed;
+            --sky-blue: #00a6d6;
+            --ocean-teal: #008c9e;
+            --charcoal: #2c2c2c;
+            --bronze: #b87333;
+            --ivory: #fffff0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--pearl-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 21, 56, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--qatar-maroon);
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--qatar-maroon);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--pearl-white) 0%, var(--warm-white) 50%, #e8f4f8 100%);
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 21, 56, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(201, 169, 97, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--qatar-maroon);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .description {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            color: var(--charcoal);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border: 2px solid var(--qatar-maroon);
+        }
+
+        .btn-primary {
+            background: var(--qatar-maroon);
+            color: var(--pearl-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--qatar-maroon-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 21, 56, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--qatar-maroon);
+        }
+
+        .btn-secondary:hover {
+            background: var(--qatar-maroon);
+            color: var(--pearl-white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--desert-sand);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--qatar-maroon);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.85;
+        }
+
+        /* Challenge Section */
+        .challenge {
+            background: linear-gradient(to bottom, var(--pearl-white), var(--warm-white));
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .challenge-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(139, 21, 56, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--desert-sand), var(--bronze));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .challenge-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 21, 56, 0.1);
+        }
+
+        .challenge-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--qatar-maroon);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .challenge-card p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--qatar-maroon);
+            color: var(--pearl-white);
+        }
+
+        .solution .section-tag {
+            color: var(--desert-sand);
+        }
+
+        .solution .section-title {
+            color: var(--pearl-white);
+        }
+
+        .solution .section-description {
+            color: var(--warm-white);
+            opacity: 0.95;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--pearl-white);
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Journey Section */
+        .journey {
+            background: var(--warm-white);
+        }
+
+        .journey-steps {
+            margin-top: 4rem;
+        }
+
+        .journey-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .journey-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .journey-step:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .journey-image {
+            background: linear-gradient(135deg, var(--qatar-maroon), var(--ocean-teal));
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--desert-sand);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-image.has-photo {
+            background: none;
+        }
+
+        .journey-image.has-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .journey-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 40px,
+                    rgba(255, 255, 255, 0.03) 80px
+                );
+        }
+
+        .journey-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--qatar-maroon);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .journey-content .step-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--desert-sand);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .journey-content p {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: linear-gradient(135deg, #f5f2ed 0%, #e8f4f8 100%);
+        }
+
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--desert-sand);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(139, 21, 56, 0.15);
+        }
+
+        .tech-item h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--qatar-maroon);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Impact Section */
+        .impact {
+            background: var(--charcoal);
+            color: var(--pearl-white);
+        }
+
+        .impact .section-title {
+            color: var(--pearl-white);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .impact-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--desert-sand);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .impact-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .impact-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .impact-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--desert-sand);
+            font-weight: bold;
+        }
+
+        /* Business Model Section */
+        .business-model {
+            background: var(--pearl-white);
+        }
+
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .revenue-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(139, 21, 56, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .revenue-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--desert-sand);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .revenue-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .revenue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(139, 21, 56, 0.1);
+        }
+
+        .revenue-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--qatar-maroon);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .revenue-card p {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--qatar-maroon) 0%, var(--qatar-maroon-dark) 100%);
+            color: var(--pearl-white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .final-cta .btn {
+            border-color: var(--desert-sand);
+        }
+
+        .final-cta .btn-primary {
+            background: var(--desert-sand);
+            color: var(--charcoal);
+        }
+
+        .final-cta .btn-primary:hover {
+            background: var(--bronze);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--pearl-white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .journey-step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .journey-step:nth-child(even) {
+                direction: ltr;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">← VISIT QATAR AR/VR</a>
+            <ul class="nav-links">
+                <li><a href="#challenge">The Challenge</a></li>
+                <li><a href="#solution">Innovation</a></li>
+                <li><a href="#journey">Experience</a></li>
+                <li><a href="#technology">Technology</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Experience Qatar Like Never Before</h1>
+            <p class="subtitle">Autonomous AR/VR-Enabled Tourism Experience</p>
+            <p class="description">
+                Transform how you discover Qatar with an intelligent autonomous vehicle that delivers immersive AR/VR experiences. Journey through rich cultural heritage, explore iconic landmarks, and engage with personalized storytelling—all from the comfort of a smart, mobile tour guide.
+            </p>
+            <div class="cta-buttons">
+                <a href="#journey" class="btn btn-primary">Explore the Journey</a>
+                <a href="#solution" class="btn btn-secondary">See Innovation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="challenge" id="challenge">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Opportunity & Market Motivation</div>
+                <h2 class="section-title">Traditional Tourism Falls Short</h2>
+                <p class="section-description">
+                    While Qatar positions itself as a global destination for tourism, culture, and events, visitors face significant challenges that limit their experience.
+                </p>
+            </div>
+            <div class="challenge-grid">
+                <div class="challenge-card fade-in">
+                    <h4>Limited Time</h4>
+                    <p>Tourists struggle to experience Qatar's rich offerings within their tight schedules</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Lack of Context</h4>
+                    <p>Visitors miss the deeper stories behind landmarks, culture, and heritage</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Static Experiences</h4>
+                    <p>Traditional guided tours are non-personalized and constrained by fixed schedules</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Discovery Challenges</h4>
+                    <p>Difficulty finding personalized experiences beyond mainstream attractions</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Language Barriers</h4>
+                    <p>Communication gaps reduce engagement for international visitors</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h4>Transportation Gaps</h4>
+                    <p>Disconnected mobility makes it difficult to explore multiple destinations efficiently</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Proposed Concept</div>
+                <h2 class="section-title">Autonomous Smart Tour Guide Platform</h2>
+                <p class="section-description">
+                    An intelligent mobility service integrated with AR/VR capabilities that transforms physical exploration with immersive digital storytelling.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Autonomous Navigation</h3>
+                    <p>Safe, efficient transport between key destinations with smart routing and comfort</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🥽</div>
+                    <h3>Immersive AR/VR</h3>
+                    <p>Virtual previews, historical reconstructions, and interactive cultural experiences during transit</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Itineraries</h3>
+                    <p>AI-powered recommendations tailored to individual preferences and interests</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">📍</div>
+                    <h3>Contextual Overlays</h3>
+                    <p>AR enhancements at destinations with historical facts, navigation, and points of interest</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multilingual Support</h3>
+                    <p>Content in Arabic, English, and additional tourist languages for global accessibility</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">💫</div>
+                    <h3>Adaptive Journey</h3>
+                    <p>Dynamic content updates based on real-time preferences and engagement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">User Experience</div>
+                <h2 class="section-title">The Journey</h2>
+                <p class="section-description">
+                    From booking to conclusion, experience seamless exploration with immersive storytelling at every step
+                </p>
+            </div>
+            <div class="journey-steps">
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/visit-qatar/Step-1.png" alt="Book & Discover">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Book & Discover</h3>
+                        <div class="step-title">Seamless Start</div>
+                        <p>Book your experience via app, hotel concierge, or tourism platform. The autonomous vehicle arrives with your personalized itinerary ready.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/visit-qatar/Step-2.png" alt="Immersive Transit">  
+                    </div>
+                    <div class="journey-content">
+                        <h3>Immersive Transit</h3>
+                        <div class="step-title">Virtual Previews</div>
+                        <p>During the journey, engage with AR/VR content including virtual previews of upcoming destinations, historical reconstructions, and interactive cultural experiences.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/visit-qatar/Step-3.png" alt="Augmented Arrival">  
+                    </div>
+                    <div class="journey-content">
+                        <h3>Augmented Arrival</h3>
+                        <div class="step-title">Enhanced Reality</div>
+                        <p>At each destination, AR overlays enhance your physical visit with contextual information, historical facts, navigation guides, and hidden points of interest.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/visit-qatar/Step-4.png" alt="Adaptive Discovery">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Adaptive Discovery</h3>
+                        <div class="step-title">Smart Recommendations</div>
+                        <p>The system learns your preferences and provides adaptive recommendations, continuously refining your journey based on engagement and interests.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/visit-qatar/Step-5.png" alt="Digital Memories">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Digital Memories</h3>
+                        <div class="step-title">Complete Summary</div>
+                        <p>Experience concludes with comprehensive digital summaries, personalized recommendations for your next visit, and shareable content to relive your journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Technology Enablers</div>
+                <h2 class="section-title">Powering Immersive Experiences</h2>
+                <p class="section-description">
+                    Advanced systems seamlessly integrated to deliver unparalleled tourism experiences
+                </p>
+            </div>
+            <div class="tech-list">
+                <div class="tech-item fade-in">
+                    <h4>Autonomous Driving</h4>
+                    <p>Safe and efficient navigation between tourist destinations with real-time routing optimization</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>AR/VR Technologies</h4>
+                    <p>Immersive storytelling engines with virtual previews, historical overlays, and augmented on-site experiences</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>AI & Personalization</h4>
+                    <p>Machine learning algorithms create tailored itineraries and dynamic content recommendations</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Location-Based Services</h4>
+                    <p>Context-aware content triggered by proximity to landmarks and points of interest</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Cloud & Edge Platforms</h4>
+                    <p>Distributed architecture for content delivery, user profiles, and real-time analytics</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>5G Connectivity</h4>
+                    <p>High-bandwidth network for AR/VR streaming with offline fallback capabilities</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>V2X Communication</h4>
+                    <p>Vehicle-to-everything integration for smart mobility and traffic management</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Content Management System</h4>
+                    <p>Centralized platform for managing AR/VR experiences with continuous updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section class="business-model">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Business Model</div>
+                <h2 class="section-title">Revenue Streams</h2>
+                <p class="section-description">
+                    Multiple value-generating opportunities across the tourism ecosystem
+                </p>
+            </div>
+            <div class="revenue-grid">
+                <div class="revenue-card fade-in">
+                    <h4>Experience Packages</h4>
+                    <p>Tiered offerings sold via Visit Qatar and tourism partners with premium content upgrades</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>AR/VR Subscriptions</h4>
+                    <p>Premium content access with exclusive experiences and enhanced features</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>Partnership Revenue</h4>
+                    <p>Collaborations with attractions, museums, hotels, and retail locations</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>Sponsored Content</h4>
+                    <p>Advertising and sponsored experiences within AR/VR environment</p>
+                </div>
+                <div class="revenue-card fade-in">
+                    <h4>Data Insights</h4>
+                    <p>Privacy-compliant analytics for tourism planning and destination optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Impact & Benefits</div>
+                <h2 class="section-title">Transforming Tourism</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">✈️</div>
+                    <h3>For Tourists</h3>
+                    <ul class="impact-list">
+                        <li>Richer, more engaging travel experiences</li>
+                        <li>Personalized exploration tailored to interests</li>
+                        <li>Deeper cultural understanding through storytelling</li>
+                        <li>Efficient time management with guided mobility</li>
+                        <li>Shareable digital memories and content</li>
+                    </ul>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">🏛️</div>
+                    <h3>For Qatar Tourism</h3>
+                    <ul class="impact-list">
+                        <li>Increased visitor satisfaction and engagement</li>
+                        <li>Longer stays and higher spending per visitor</li>
+                        <li>Competitive differentiation in smart tourism</li>
+                        <li>Enhanced destination brand positioning</li>
+                        <li>Data-driven insights for ecosystem improvement</li>
+                    </ul>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">🤝</div>
+                    <h3>For Partners</h3>
+                    <ul class="impact-list">
+                        <li>New revenue streams and channels</li>
+                        <li>Enhanced marketing opportunities</li>
+                        <li>Increased visitor traffic to venues</li>
+                        <li>Collaborative ecosystem benefits</li>
+                        <li>Innovation leadership positioning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Tourism in Qatar?</h2>
+            <p>Join the future of smart tourism with an immersive AR/VR experience that positions Qatar as a global leader in innovation and visitor engagement. Perfect for tourism operators, cultural institutions, and smart city initiatives.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Partner With Us</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Visit Qatar AR/VR Experience. Redefining immersive tourism.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays
+        document.querySelectorAll('.challenge-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.feature').forEach((feature, index) => {
+            feature.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.tech-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.08}s`;
+        });
+
+        document.querySelectorAll('.revenue-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>

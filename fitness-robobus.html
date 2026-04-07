@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Robobus | Mobile Wellness & Health Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fitness-green: #2e7d32;
+            --energy-lime: #7cb342;
+            --vitality-teal: #00897b;
+            --wellness-blue: #0277bd;
+            --active-orange: #ef6c00;
+            --fresh-mint: #e8f5e9;
+            --warm-white: #faf8f3;
+            --pearl: #f5f2ed;
+            --charcoal: #2c2c2c;
+            --silver: #90a4ae;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--fitness-green);
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--fitness-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--fresh-mint) 50%, #e0f2f1 100%);
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 179, 66, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--fitness-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .description {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            color: var(--charcoal);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border: 2px solid var(--fitness-green);
+        }
+
+        .btn-primary {
+            background: var(--fitness-green);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--vitality-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--fitness-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--fitness-green);
+            color: var(--warm-white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--energy-lime);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--fitness-green);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.85;
+        }
+
+        /* Concept Section */
+        .concept {
+            background: linear-gradient(to bottom, var(--warm-white), var(--pearl));
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .concept-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(46, 125, 50, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--energy-lime), var(--vitality-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .concept-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .concept-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--fitness-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .concept-card p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--fitness-green);
+            color: var(--warm-white);
+        }
+
+        .features .section-tag {
+            color: var(--energy-lime);
+        }
+
+        .features .section-title {
+            color: var(--warm-white);
+        }
+
+        .features .section-description {
+            color: var(--fresh-mint);
+            opacity: 0.95;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--warm-white);
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+         /* Journey Section */
+        .journey {
+            background: var(--warm-white);
+        }
+
+        .journey-steps {
+            margin-top: 4rem;
+        }
+
+        .journey-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .journey-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .journey-step:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .journey-image {
+            background: linear-gradient(135deg, var(--golf-green-light), var(--fairway));
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .journey-image.has-photo {
+            background: none;
+        }
+
+        .journey-image.has-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .journey-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 40px,
+                    rgba(255, 255, 255, 0.03) 80px
+                );
+        }
+
+        .journey-image.has-photo::before {
+            display: none;
+        }
+
+        .journey-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--golf-green);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .journey-content .step-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .journey-content p {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+
+        /* Technology Section */
+        .technology {
+            background: linear-gradient(135deg, #f5f2ed 0%, #e8f5e9 100%);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--energy-lime);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(46, 125, 50, 0.15);
+        }
+
+        .tech-item h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--fitness-green);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Target Section */
+        .target {
+            background: var(--warm-white);
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .target-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .target-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(46, 125, 50, 0.1);
+        }
+
+        .target-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--fitness-green);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .target-list {
+            list-style: none;
+        }
+
+        .target-list li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .target-list li::before {
+            content: '💪';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        /* Value Section */
+        .value {
+            background: var(--charcoal);
+            color: var(--warm-white);
+        }
+
+        .value .section-title {
+            color: var(--warm-white);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--energy-lime);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .value-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--energy-lime);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--fitness-green) 0%, var(--vitality-teal) 100%);
+            color: var(--warm-white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .final-cta .btn {
+            border-color: var(--energy-lime);
+        }
+
+        .final-cta .btn-primary {
+            background: var(--energy-lime);
+            color: var(--charcoal);
+        }
+
+        .final-cta .btn-primary:hover {
+            background: var(--active-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(124, 179, 66, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(124, 179, 66, 0.2);
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .journey-step {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">← FITNESS ROBOBUS</a>
+            <ul class="nav-links">
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#technology">Technology</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Wellness Hub. On Wheels.</h1>
+            <p class="subtitle">Mobile Fitness & Health Center</p>
+            <p class="description">
+                Experience comprehensive health and wellness services delivered directly to popular locations like Aspire Park and Katara Cultural Village. Browse fitness products, receive expert consultations, and access premium wellness solutions in a fully equipped autonomous mobile center.
+            </p>
+            <div class="cta-buttons">
+                <a href="#journey" class="btn btn-primary">Explore the Journey</a>
+                <a href="#features" class="btn btn-secondary">See Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="concept" id="concept">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Scenario Description</div>
+                <h2 class="section-title">Mobile Fitness & Wellness Center</h2>
+                <p class="section-description">
+                    A fully enclosed autonomous vehicle delivering comprehensive health experiences and fitness product access directly to your favorite locations.
+                </p>
+            </div>
+            <div class="concept-grid">
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🏋️</div>
+                    <h4>Product Showcase</h4>
+                    <p>Browse a curated selection of fitness supplements, gear, and wellness tools with options to purchase and sample directly inside</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🚗</div>
+                    <h4>Autonomous Mobility</h4>
+                    <p>Travels to high-footfall locations like Aspire Park and cultural venues, bringing wellness directly to communities</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">💡</div>
+                    <h4>Expert Consultations</h4>
+                    <p>Access on-site or virtual wellness consultants for personalized recommendations and health advice</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🎯</div>
+                    <h4>Interactive Experience</h4>
+                    <p>Informational resources, product testing areas, and sampling opportunities for informed decision-making</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">🔬</div>
+                    <h4>AR/VR Integration</h4>
+                    <p>Immersive product visualization and virtual try-ons to see how fitness solutions fit your lifestyle</p>
+                </div>
+                <div class="concept-card fade-in">
+                    <div class="concept-icon">📱</div>
+                    <h4>Smart Technology</h4>
+                    <p>IoT-enabled shelves, digital displays, and AI-powered recommendations for seamless shopping</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Vehicle Layout & Design</div>
+                <h2 class="section-title">Designed for Wellness</h2>
+                <p class="section-description">
+                    Every element crafted to provide an exceptional health and fitness experience
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">🛍️</div>
+                    <h3>Curated Product Selection</h3>
+                    <p>Shelving and display sections featuring supplements, fitness gear, and wellness tools from trusted brands</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Product Information</h3>
+                    <p>Easy access to detailed product information, usage guides, and nutritional facts for informed choices</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🧪</div>
+                    <h3>Sample & Test</h3>
+                    <p>Designated areas for sampling supplements and testing fitness equipment before purchase</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <h3>Professional Guidance</h3>
+                    <p>On-site or virtual consultants available for personalized recommendations and wellness advice</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">💳</div>
+                    <h3>Instant Purchase</h3>
+                    <p>Seamless payment systems for immediate on-site purchases and convenient takeaway</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Premium Environment</h3>
+                    <p>Climate-controlled, well-lit space with modern finishes creating a comfortable shopping experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">User Experience</div>
+                <h2 class="section-title">The Journey</h2>
+                <p class="section-description">
+                    From discovery to purchase, every step is designed for your wellness
+                </p>
+            </div>
+            <div class="journey-steps">
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/fitness/step-1.png" alt="Step 1: Welcome & Entry">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Welcome & Entry</h3>
+                        <p>Enter the mobile wellness hub and be welcomed to the product showcase area featuring a curated selection of fitness and health products.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/fitness/step-2.png" alt="Step 2: Browse & Explore">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Browse & Explore</h3>
+                        <p>Explore various fitness products with easy access to informational resources, detailed specifications, and usage guides.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/fitness/step-3.png" alt="Step 3: Sample & Test">
+                    </div>  
+                    <div class="journey-content">
+                        <h3>Sample & Test</h3>
+                        <p>Sample supplements and test fitness gear within designated areas to ensure products meet your needs and preferences.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/fitness/step-4.png" alt="Step 4: Get Expert Advice">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Get Expert Advice</h3>
+                        <p>Interact with on-site or virtual wellness consultants for personalized recommendations tailored to your fitness goals.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step fade-in">
+                    <div class="journey-image has-photo">
+                        <img src="./assets/images/fitness/step-5.png" alt="Step 5: Purchase & Go">
+                    </div>
+                    <div class="journey-content">
+                        <h3>Purchase & Go</h3>
+                        <p>Select your products and complete purchases directly on-site for immediate use, with seamless payment options available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Technology Enablers</div>
+                <h2 class="section-title">Advanced Wellness Technology</h2>
+                <p class="section-description">
+                    Cutting-edge systems creating seamless, personalized health experiences
+                </p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <h4>Autonomous Driving</h4>
+                    <p>Safe navigation and positioning ensuring efficient reach to high-footfall areas like parks and cultural venues</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>AI & Computer Vision</h4>
+                    <p>Virtual try-ons, body measurements, and personalized style recommendations powered by artificial intelligence</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Retail IoT</h4>
+                    <p>Smart shelves with digital tags for enhanced inventory tracking and real-time product availability monitoring</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>AR/VR Integration</h4>
+                    <p>Immersive media for enhanced product visualization and demonstrating how products fit into fitness routines</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Digital Payment Systems</h4>
+                    <p>Contactless transactions and integrated POS for seamless purchasing experiences</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Fleet Management</h4>
+                    <p>Centralized platform for route optimization, inventory management, and quality consistency across locations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Customers Section -->
+    <section class="target">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Target Customers</div>
+                <h2 class="section-title">Serving Active Communities</h2>
+                <p class="section-description">
+                    Bringing wellness directly to fitness enthusiasts and health-conscious individuals
+                </p>
+            </div>
+            <div class="target-grid">
+                <div class="target-card fade-in">
+                    <h4>End Users</h4>
+                    <ul class="target-list">
+                        <li>Fitness enthusiasts and athletes</li>
+                        <li>Families seeking wellness solutions</li>
+                        <li>Individuals seeking health advice</li>
+                        <li>Park visitors and outdoor enthusiasts</li>
+                        <li>Community wellness participants</li>
+                    </ul>
+                </div>
+                <div class="target-card fade-in">
+                    <h4>Business Clients</h4>
+                    <ul class="target-list">
+                        <li>Fitness trainers and coaches</li>
+                        <li>Nutritionists and dietitians</li>
+                        <li>Wellness brands and suppliers</li>
+                        <li>Local health businesses</li>
+                        <li>Supplement manufacturers</li>
+                    </ul>
+                </div>
+                <div class="target-card fade-in">
+                    <h4>Stakeholders</h4>
+                    <ul class="target-list">
+                        <li>Park authorities and management</li>
+                        <li>Community organizations</li>
+                        <li>Health and wellness event organizers</li>
+                        <li>Municipal wellness programs</li>
+                        <li>Fitness facility operators</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="value">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Value Proposition</div>
+                <h2 class="section-title">Why Fitness Robobus</h2>
+            </div>
+            <div class="value-grid">
+                <div class="value-card fade-in">
+                    <h4>Accessible Wellness</h4>
+                    <p>Brings comprehensive fitness and health products directly to popular community locations, eliminating travel barriers</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Expert Guidance</h4>
+                    <p>On-demand access to wellness consultants providing personalized recommendations and professional health advice</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Try Before You Buy</h4>
+                    <p>Sample supplements and test equipment before purchasing, ensuring products meet your specific needs</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Convenient Shopping</h4>
+                    <p>Browse, sample, and purchase all in one location with immediate takeaway and minimal wait times</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Innovative Experience</h4>
+                    <p>AR/VR technology and smart displays create engaging, interactive product exploration</p>
+                </div>
+                <div class="value-card fade-in">
+                    <h4>Community Integration</h4>
+                    <p>Aligns with active lifestyles by meeting customers where they exercise and socialize</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Community Wellness?</h2>
+            <p>Join the future of mobile health and fitness retail with an autonomous platform that brings expert guidance, premium products, and innovative technology directly to active communities.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Partner With Us</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Fitness Robobus. Delivering wellness to communities on wheels.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays
+        document.querySelectorAll('.concept-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.feature').forEach((feature, index) => {
+            feature.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.tech-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.08}s`;
+        });
+
+        document.querySelectorAll('.target-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.value-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
