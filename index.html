@@ -1,34 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <meta name="description" content="Airport Robobus - Revolutionizing the airport departure experience">
-    <meta name="keywords" content="airport, autonomous, check-in, baggage, innovation">
-    <meta name="author" content="Airport Innovation">
-    
-    <!-- Page Title -->
-    <title>Airport Robobus | Zero-Carry Departure Experience</title>
-<!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Mobility Solutions | Innovation Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #734bdf;
-            --secondary-color: #1E293B;
-            --accent-color: #734bdf;
-            --text-dark: #0F172A;
-            --text-light: #64748B;
-            --bg-light: #F8FAFC;
-            --white: #FFFFFF;
+            --primary-dark: #1a1a1a;
+            --primary-light: #faf8f3;
+            --accent-gold: #c9a961;
+            --accent-blue: #0a4d8f;
+            --accent-maroon: #8b1538;
+            --warm-white: #f5f2ed;
+            --charcoal: #2c2c2c;
+            --silver: #b0bec5;
         }
 
         * {
@@ -38,1018 +24,701 @@
         }
 
         body {
-            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-            color: var(--text-dark);
-            line-height: 1.7;
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--primary-light);
+            color: var(--primary-dark);
             overflow-x: hidden;
+            line-height: 1.7;
         }
 
-        /* Header Styles */
-        .main-header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-
-        .navbar-brand {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--primary-color) !important;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--text-dark);
-            font-weight: 500;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .btn-default {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            border: none;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-default:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(115, 75, 223, 0.35);
-        }
-
-        .btn-outlined {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-outlined:hover {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(135deg, rgba(2, 6, 23, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%), url('assets/images/hero-airport.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 120px 0 150px;
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #3a3a3a 100%);
+            padding: 4rem 2rem;
             overflow: hidden;
         }
 
-        .page-header::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(10, 77, 143, 0.08) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        .page-header-box {
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 6rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: var(--primary-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease-out both;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .description {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--warm-white);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scenarios Grid */
+        .scenarios {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
             position: relative;
             z-index: 2;
-            text-align: center;
         }
 
-        .page-header h1 {
-            font-size: 60px;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 20px;
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .scenario-card {
+            background: var(--primary-light);
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            animation: fadeInUp 1s ease-out both;
+            text-decoration: none;
+            display: block;
+        }
+
+        .scenario-card:nth-child(1) {
+            animation-delay: 0.6s;
+        }
+
+        .scenario-card:nth-child(2) {
+            animation-delay: 0.7s;
+        }
+
+        .scenario-card:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+
+        .scenario-card:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+
+        .scenario-card:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .scenario-card:nth-child(6) {
+            animation-delay: 1.1s;
+        }
+
+        .scenario-card:nth-child(7) {
+            animation-delay: 1.2s;
+        }
+
+        .scenario-card:nth-child(8) {
+            animation-delay: 1.3s;
+        }
+
+        .scenario-card:nth-child(9) {
+            animation-delay: 1.4s;
+        }
+
+        .scenario-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .scenario-card.golf::before {
+            background: linear-gradient(90deg, #1a5632, #c9a961);
+        }
+
+        .scenario-card.tourism::before {
+            background: linear-gradient(90deg, #8b1538, #c9a961);
+        }
+
+        .scenario-card.edge::before {
+            background: linear-gradient(90deg, #0a4d8f, #00d4ff);
+        }
+
+        .scenario-card.coffee::before {
+            background: linear-gradient(90deg, #5d4037, #d4a574);
+        }
+
+        .scenario-card.fitness::before {
+            background: linear-gradient(90deg, #2e7d32, #7cb342);
+        }
+
+        .scenario-card.airport::before {
+            background: linear-gradient(90deg, #0277bd, #4fc3f7);
+        }
+
+        .scenario-card.toy::before {
+            background: linear-gradient(90deg, #e53935, #fdd835);
+        }
+
+        .scenario-card.health::before {
+            background: linear-gradient(90deg, #0277bd, #00897b);
+        }
+
+         .scenario-card.shop::before {
+            background: linear-gradient(90deg, #02669f, #4fc3f7);
+        }
+
+        .scenario-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .scenario-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--charcoal), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-card.golf .scenario-image {
+            background: linear-gradient(135deg, #1a5632, #2d7a4c);
+        }
+
+        .scenario-card.tourism .scenario-image {
+            background: linear-gradient(135deg, #8b1538, #c9a961);
+        }
+
+        .scenario-card.edge .scenario-image {
+            background: linear-gradient(135deg, #0a4d8f, #00d4ff);
+        }
+
+        .scenario-card.coffee .scenario-image {
+            background: linear-gradient(135deg, #5d4037, #a1887f);
+        }
+
+        .scenario-card.fitness .scenario-image {
+            background: linear-gradient(135deg, #2e7d32, #7cb342);
+        }
+
+        .scenario-card.airport .scenario-image {
+            background: linear-gradient(135deg, #0277bd, #4fc3f7);
+        }
+
+        .scenario-card.toy .scenario-image {
+            background: linear-gradient(135deg, #e53935, #fb8c00);
+        }
+
+        .scenario-card.health .scenario-image {
+            background: linear-gradient(135deg, #0277bd, #00897b);
+        }
+
+        .scenario-card.shop .scenario-image {
+            background: linear-gradient(135deg, #02669f, #4fc3f7);
+        }
+
+        .scenario-icon {
+            font-size: 6rem;
+            opacity: 0.2;
+            transition: all 0.5s ease;
+        }
+
+        .scenario-card:hover .scenario-icon {
+            opacity: 0.4;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .scenario-content {
+            padding: 3rem;
+            background: var(--primary-light);
+        }
+
+        .scenario-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .scenario-card.golf .scenario-tag {
+            color: #1a5632;
+        }
+
+        .scenario-card.tourism .scenario-tag {
+            color: #8b1538;
+        }
+
+        .scenario-card.edge .scenario-tag {
+            color: #0a4d8f;
+        }
+
+        .scenario-card.coffee .scenario-tag {
+            color: #5d4037;
+        }
+
+        .scenario-card.fitness .scenario-tag {
+            color: #2e7d32;
+        }
+
+        .scenario-card.airport .scenario-tag {
+            color: #0277bd;
+        }
+
+        .scenario-card.toy .scenario-tag {
+            color: #e53935;
+        }
+
+        .scenario-card.health .scenario-tag {
+            color: #0277bd;
+        }
+        
+        .scenario-card.shop .scenario-tag {
+            color: #02669f;
+        }
+
+        .scenario-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
             line-height: 1.2;
         }
 
-        .page-header .hero-subtitle {
-            font-size: 24px;
-            color: rgba(255,255,255,0.95);
-            font-weight: 650;
-            margin-bottom: 25px;
-            display: inline-block;
-            max-width: 980px;
-            line-height: 1.4;
-            padding: 14px 18px;
-            border-radius: 16px;
-           
+        .scenario-content p {
+            font-size: 1.15rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
-        .page-header .hero-subtitle .accent {
-            color: var(--primary-color);
-            font-weight: 750;
-        }
-
-        .page-header p {
-            font-size: 18px;
-            color: rgba(255,255,255,0.9);
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        .promise-badge {
-            display: inline-block;
-            background: rgba(115, 75, 223, 0.18);
-            border-left: 4px solid var(--primary-color);
-            padding: 20px 40px;
-            margin: 30px 0;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .cta-buttons {
-            margin-top: 40px;
-        }
-
-        .cta-buttons .btn-default,
-        .cta-buttons .btn-outlined {
-            margin: 10px;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            margin-bottom: 50px;
-        }
-
-        .section-title h3 {
-            color: var(--primary-color);
-            font-size: 18px;
-            font-weight: 600;
+        .scenario-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
         }
 
-        .section-title h2 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--text-dark);
-            line-height: 1.3;
-            margin-bottom: 20px;
+        .scenario-card.golf .scenario-link {
+            color: #1a5632;
         }
 
-        .section-title p {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 700px;
+        .scenario-card.tourism .scenario-link {
+            color: #8b1538;
+        }
+
+        .scenario-card.edge .scenario-link {
+            color: #0a4d8f;
+        }
+
+        .scenario-card.coffee .scenario-link {
+            color: #5d4037;
+        }
+
+        .scenario-card.fitness .scenario-link {
+            color: #2e7d32;
+        }
+
+        .scenario-card.airport .scenario-link {
+            color: #0277bd;
+        }
+
+        .scenario-card.toy .scenario-link {
+            color: #e53935;
+        }
+
+        .scenario-card.health .scenario-link {
+            color: #0277bd;
+        }
+
+        .scenario-card.shop .scenario-link {
+            color: #02669f;
+        }
+
+        .scenario-link:hover {
+            transform: translateX(5px);
+            border-bottom-color: currentColor;
+        }
+
+        .scenario-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .scenario-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--warm-white);
+            padding: 6rem 2rem;
+        }
+
+        .features .container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Problem Section */
-        .problem-section {
-            background: var(--bg-light);
-        }
-
-        .problem-item {
-            background: var(--white);
-            padding: 35px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--primary-color);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .problem-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-
-        .problem-item .icon {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .problem-item h4 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .problem-item p {
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* Idea Section */
-        .idea-section {
-            background: var(--white);
-        }
-
-        .idea-step {
+        .features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             text-align: center;
-            padding: 40px 25px;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #1e3a5f 100%);
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .idea-step:hover {
-            transform: scale(1.05);
-        }
-
-        .idea-step::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,87,51,0.1) 0%, transparent 70%);
-        }
-
-        .step-number {
-            position: relative;
-            font-size: 50px;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .idea-step h4 {
-            position: relative;
-            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 4rem;
             font-weight: 700;
-            color: var(--white);
-            margin-bottom: 15px;
         }
 
-        .idea-step p {
-            position: relative;
-            color: rgba(255,255,255,0.85);
-            margin: 0;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
         }
 
-        /* Storyboard Section */
-        .storyboard-section {
-            background: var(--bg-light);
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s ease;
         }
 
-        .story-item {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .story-image {
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .story-image .story-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .story-number {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 70px;
-            height: 70px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            font-weight: 800;
-            color: var(--white);
-        }
-
-        .story-content {
-            padding: 40px;
-        }
-
-        .story-content h3 {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-
-        .story-content p {
-            font-size: 17px;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            background: var(--secondary-color);
-            color: var(--white);
-        }
-
-        .benefits-section .section-title h2,
-        .benefits-section .section-title h3 {
-            color: var(--white);
-        }
-
-        .benefits-section .section-title p {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .benefit-card {
-            background: rgba(255,255,255,0.08);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-            transition: all 0.3s;
-        }
-
-        .benefit-card:hover {
-            background: rgba(255,255,255,0.12);
+        .feature-item:hover {
             transform: translateY(-10px);
         }
 
-        .benefit-icon {
-            font-size: 50px;
-            margin-bottom: 25px;
-            display: block;
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .benefit-card h4 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+        .feature-item h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .benefit-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .benefit-list li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .benefit-list li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
-
-        /* How It Works */
-        .how-section {
-            background: var(--white);
-        }
-
-        .process-step {
-            display: flex;
-            align-items: center;
-            padding: 30px;
-            background: var(--bg-light);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-
-        .process-step:hover {
-            background: var(--secondary-color);
-            color: var(--white);
-            transform: translateX(15px);
-        }
-
-        .process-number {
-            width: 70px;
-            height: 70px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: 800;
-            flex-shrink: 0;
-            margin-right: 25px;
-        }
-
-        .process-step:hover .process-number {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
-        .process-step strong {
-            font-weight: 700;
-        }
-
-        /* Audience Section */
-        .audience-section {
-            background: var(--bg-light);
-        }
-
-        .audience-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-            transition: all 0.3s;
-        }
-
-        .audience-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .audience-emoji {
-            font-size: 60px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .audience-card h4 {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .audience-card p {
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* Future Section */
-        .future-section {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: var(--white);
-        }
-
-        .future-section .section-title h2,
-        .future-section .section-title h3 {
-            color: var(--white);
-        }
-
-        .future-section .section-title p {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .future-item {
-            background: rgba(255,255,255,0.95);
-            padding: 35px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .future-item h4 {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .future-item p {
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 120px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 30px;
-            line-height: 1.3;
-        }
-
-        .cta-section p {
-            font-size: 20px;
-            color: rgba(255,255,255,0.9);
-            max-width: 800px;
-            margin: 0 auto 50px;
-            line-height: 1.8;
+        .feature-item p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.85;
+            line-height: 1.7;
         }
 
         /* Footer */
         footer {
-            background: #0F172A;
-            color: rgba(255,255,255,0.7);
-            padding: 50px 0;
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            padding: 3rem 2rem;
             text-align: center;
         }
 
         footer p {
-            margin: 0;
-        }
-
-        /* Animations */
-        .wow {
-            visibility: hidden;
+            font-size: 1rem;
+            opacity: 0.7;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 36px;
+            .scenarios-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .page-header .hero-subtitle {
-                font-size: 18px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .section-title h2 {
-                font-size: 32px;
+            .hero .subtitle {
+                font-size: 1rem;
             }
+        }
 
-            .story-image {
-                height: 300px;
-            }
+        /* Scroll Reveal */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
 
-            .process-step {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .process-number {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-
-            .cta-buttons .btn-default,
-            .cta-buttons .btn-outlined {
-                display: block;
-                margin: 10px auto;
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Autonomous Mobility Solutions</h1>
+            <p class="subtitle">Potential Innovative Business Scenarios</p>
+            <p class="description">
+                Explore nine cutting-edge autonomous mobility concepts that transform industries, enhance experiences, and deliver unprecedented value across transportation, tourism, hospitality, infrastructure, wellness, family, and healthcare sectors.
+            </p>
+        </div>
 
-    <!-- Header Start -->
-    <header class="main-header">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="#">Airport Robobus</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#problem">The Problem</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#solution">The Solution</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#journey">Journey</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#how">How It Works</a>
-                        </li>
-                       
-                    </ul>
-                   
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Header End -->
-
-    <!-- Page Header Section Start -->
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header-box">
-                        <h1 class="animate__animated animate__fadeInUp">Check in. Drop bags. <br>Walk hands-free to departures.</h1>
-                        <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Reinventing the airport departure experience with an autonomous <span class="accent">“Check-in &amp; Bag Drop”</span> Robobus.</p>
-                        <p class="animate__animated animate__fadeInUp animate__delay-2s">Arrive at the airport, step into the robobus, complete check-in, tag and drop your bags — then walk straight to security hands-free. The robobus securely transports your luggage to the designated baggage acceptance point.</p>
-                        <div class="promise-badge animate__animated animate__fadeInUp animate__delay-3s">
-                            Zero-carry. Queue-less. Seamless departure.
-                        </div>
-                        <div class="cta-buttons animate__animated animate__fadeInUp animate__delay-4s">
-                            <a href="#journey" class="btn-default">Explore the Journey</a>
-                            <a href="#how" class="btn-outlined">See How It Works</a>
-                        </div>
+        <!-- Scenarios Grid -->
+        <div class="scenarios">
+            <div class="scenarios-grid">
+                <!-- Airport Scenario -->
+                <a href="airport-robobus.html" class="scenario-card airport">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">✈️</div>
                     </div>
-                </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Airport Experience</div>
+                        <h3>Airport Check-in Robobus</h3>
+                        <p>Zero-carry departure experience with autonomous check-in and bag drop service that transforms the airport journey from arrival to security.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Golf Scenario -->
+                <a href="golf-robobus.html" class="scenario-card golf">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">⛳</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Luxury Golf Experience</div>
+                        <h3>Autonomous Golf Companion</h3>
+                        <p>Elevate every round with an intelligent vehicle that combines autonomous navigation, ball tracking, and premium amenities for the ultimate golf experience.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Tourism Scenario -->
+                <a href="visit-qatar-arvr.html" class="scenario-card tourism">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">🏛️</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Immersive Tourism</div>
+                        <h3>AR/VR Tourism Platform</h3>
+                        <p>Transform destination exploration with autonomous vehicles delivering immersive AR/VR experiences and personalized cultural storytelling across Qatar.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Edge Computing Scenario -->
+                <a href="mobile-edge-platform.html" class="scenario-card edge">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">⚡</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Smart Infrastructure</div>
+                        <h3>Mobile Edge Computing & Energy</h3>
+                        <p>Deploy flexible computing power and energy resources on-demand with mobile platforms that respond dynamically to real-time infrastructure needs.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Coffee Robobus Scenario -->
+                <a href="coffee-robobus.html" class="scenario-card coffee">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">☕</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Mobile Café Experience</div>
+                        <h3>Coffee Robobus</h3>
+                        <p>Artisanal coffee and premium light meals delivered by autonomous robobus across luxury districts with robotic barista and comfortable seating.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Fitness Robobus Scenario -->
+                <a href="fitness-robobus.html" class="scenario-card fitness">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">💪</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Mobile Wellness Hub</div>
+                        <h3>Fitness & Health Robobus</h3>
+                        <p>Comprehensive wellness center on wheels delivering fitness products, expert consultations, and health solutions to parks and community spaces.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Toy Robobus Scenario -->
+                <a href="autonomous-mobile-toy.html" class="scenario-card toy">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">🎈</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Family Play Experience</div>
+                        <h3>Mobile Toy Store & Soft Play</h3>
+                        <p>Magical autonomous vehicle bringing age-appropriate toys and safe play environments directly to parks and homes for children and families.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Health Screening Scenario -->
+                <a href="health-screening-robobus.html" class="scenario-card health">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">⚕️</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Mobile Healthcare</div>
+                        <h3>Health Screening Mini-Clinic</h3>
+                        <p>Self-driving mobile health unit performing routine screenings and check-ups, bringing preventive healthcare to campuses, workplaces, and communities.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
+
+                <!-- Mobile Shop Scenario -->
+                <a href="mobile-shop.html" class="scenario-card shop">
+                    <div class="scenario-image">
+                        <div class="scenario-icon">🛍️</div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-tag">Mobile Student Shop</div>
+                        <h3>Autonomous Robobus Retail</h3>
+                        <p>Convenient campus retail solution delivering student essentials, stationery, and tech accessories directly to students via autonomous vehicles.</p>
+                        <span class="scenario-link">Explore Solution</span>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
-    <!-- Page Header Section End -->
+    </section>
 
-    <!-- Problem Section Start -->
-    <section id="problem" class="problem-section">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <div class="section-title text-center">
-                <h3 class="wow animate__animated animate__fadeInUp">The Challenge</h3>
-                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">The Problem</h2>
-                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Airports are stressful for one simple reason: the departure flow forces everyone to do the hard part first.</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                        <div class="icon"><i class="fas fa-suitcase-rolling"></i></div>
-                        <h4>Heavy Lifting</h4>
-                        <p>Carry heavy bags from the car to the terminal entrance</p>
-                    </div>
+            <h2>Unified Innovation Approach</h2>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🚗</div>
+                    <h4>Autonomous Mobility</h4>
+                    <p>Advanced self-driving capabilities enabling safe, efficient navigation across diverse environments and use cases</p>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                        <div class="icon"><i class="fas fa-shopping-cart"></i></div>
-                        <h4>Trolley Hunt</h4>
-                        <p>Search for available trolleys in crowded areas</p>
-                    </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🤖</div>
+                    <h4>AI-Powered Intelligence</h4>
+                    <p>Machine learning algorithms delivering personalization, optimization, and adaptive responses</p>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                        <div class="icon"><i class="fas fa-clock"></i></div>
-                        <h4>Queue Stress</h4>
-                        <p>Wait at check-in counters during peak hours</p>
-                    </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🌐</div>
+                    <h4>Connected Ecosystem</h4>
+                    <p>Seamless integration with smart city platforms, cloud services, and IoT infrastructure</p>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
-                        <div class="icon"><i class="fas fa-tasks"></i></div>
-                        <h4>Manual Tasks</h4>
-                        <p>Print documents, weigh bags, tag luggage yourself</p>
-                    </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">💎</div>
+                    <h4>Premium Experience</h4>
+                    <p>Refined comfort, luxury amenities, and attention to detail in every interaction</p>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">
-                        <div class="icon"><i class="fas fa-walking"></i></div>
-                        <h4>Long Walks</h4>
-                        <p>Travel long distances before reaching security</p>
-                    </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h4>Data-Driven Insights</h4>
+                    <p>Analytics and reporting that enable continuous improvement and strategic decision-making</p>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="problem-item wow animate__animated animate__fadeInUp" data-wow-delay="0.7s">
-                        <div class="icon"><i class="fas fa-users"></i></div>
-                        <h4>Congestion</h4>
-                        <p>Especially painful for families and peak seasons</p>
-                    </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">♻️</div>
+                    <h4>Sustainable Solutions</h4>
+                    <p>Electric powertrains and efficient operations reducing environmental impact</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Problem Section End -->
 
-    <!-- Idea Section Start -->
-    <section id="solution" class="idea-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3 class="wow animate__animated animate__fadeInUp">The Innovation</h3>
-                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Check-in & Bag Drop on Wheels</h2>
-                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">The robobus turns the most painful part of the airport journey into a smooth service that comes to you.</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                        <div class="step-number">01</div>
-                        <h4>Board at Drop-off</h4>
-                        <p>Meet the robobus at parking or arrival zones</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                        <div class="step-number">02</div>
-                        <h4>Self Check-in</h4>
-                        <p>Complete check-in inside the comfortable robobus</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                        <div class="step-number">03</div>
-                        <h4>Weigh & Tag Bags</h4>
-                        <p>Drop bags into secure compartments with tracking</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
-                        <div class="step-number">04</div>
-                        <h4>Walk to Security</h4>
-                        <p>Exit near security, hands-free and stress-free</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="idea-step wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">
-                        <div class="step-number">05</div>
-                        <h4>Automated Delivery</h4>
-                        <p>Robobus delivers luggage to approved drop point</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Idea Section End -->
-
-    <!-- Storyboard Section Start -->
-    <section id="journey" class="storyboard-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3 class="wow animate__animated animate__fadeInUp">Experience</h3>
-                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">The Journey</h2>
-                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Experience the seamless flow from arrival to security</p>
-            </div>
-
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="story-image">
-                            <div class="story-number">1</div>
-                            <img class="story-img" src="assets/images/story-1.jpg" alt="Arrive &amp; Board" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="story-content">
-                            <h3>Arrive & Board — No trolleys, no lifting</h3>
-                            <p>Step out of the car and into the robobus. Your departure journey starts immediately — without carrying bags through the terminal.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="story-image">
-                            <div class="story-number">2</div>
-                            <img class="story-img" src="assets/images/story-2.jpg" alt="Check-in Inside" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="story-content">
-                            <h3>Check-in Inside — Simple, guided, fast</h3>
-                            <p>Complete your check-in in a calm, organized space. Print or confirm your boarding pass and prepare your luggage for drop-off.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="story-image">
-                            <div class="story-number">3</div>
-                            <img class="story-img" src="assets/images/story-3.jpg" alt="Weigh, Tag &amp; Secure Bags" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="story-content">
-                            <h3>Weigh, Tag & Drop Luggage — Secure and tracked</h3>
-                            <p>Weigh your bags, print tags, then drop them into secure locked compartments. Each bag is tracked and logged to ensure a clear chain of custody.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="story-image">
-                            <div class="story-number">4</div>
-                            <img class="story-img" src="assets/images/story-4.jpg" alt="Walk to Security Hands-Free" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="story-content">
-                            <h3>Walk hands-free to departures</h3>
-                            <p>Exit near the security entry with only your passport and phone. The robobus transports luggage to the designated acceptance location.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Storyboard Section End -->
-
-    <!-- Benefits Section Start -->
-    <section class="benefits-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3 class="wow animate__animated animate__fadeInUp">Impact</h3>
-                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Why It Matters</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="benefit-card wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                        <span class="benefit-icon">✈️</span>
-                        <h4>A New Airport Experience</h4>
-                        <ul class="benefit-list">
-                            <li><strong>Zero-carry:</strong> No more hauling bags or searching for trolleys</li>
-                            <li><strong>Queue-less:</strong> Reduced check-in counter congestion</li>
-                            <li><strong>Less stress:</strong> A calmer start to the journey</li>
-                            <li><strong>Better flow:</strong> Distributed demand, not concentrated</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="benefit-card wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                        <span class="benefit-icon">🏢</span>
-                        <h4>Value for Airports & Operators</h4>
-                        <ul class="benefit-list">
-                            <li>Lower congestion at check-in halls</li>
-                            <li>Better peak-hour handling (holidays, events, seasonal surges)</li>
-                            <li>Premium, high-visibility innovation story</li>
-                            <li>Improved passenger satisfaction scores</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Benefits Section End -->
-
-    <!-- How It Works Section Start -->
-    <section id="how" class="how-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3 class="wow animate__animated animate__fadeInUp">Process</h3>
-                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">How It Works</h2>
-                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">A simple, streamlined process from start to finish</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.2s">
-                        <div class="process-number">1</div>
-                        <div><strong>Meet the robobus</strong> at drop-off or parking</div>
-                    </div>
-                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.3s">
-                        <div class="process-number">2</div>
-                        <div><strong>Check in</strong> via kiosk with optional remote support</div>
-                    </div>
-                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.4s">
-                        <div class="process-number">3</div>
-                        <div><strong>Weigh & tag luggage</strong> with self-service guided steps</div>
-                    </div>
-                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.5s">
-                        <div class="process-number">4</div>
-                        <div><strong>Secure bag storage</strong> in locked compartments with tracking</div>
-                    </div>
-                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s">
-                        <div class="process-number">5</div>
-                        <div><strong>Passenger drop-off</strong> near security entrance</div>
-                    </div>
-                    <div class="process-step wow animate__animated animate__fadeInLeft" data-wow-delay="0.7s">
-                        <div class="process-number">6</div>
-                        <div><strong>Robobus luggage delivery</strong> to authorized baggage acceptance point</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- How It Works Section End -->
-
-    <!-- Audience Section Start -->
-    <section class="audience-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3 class="wow animate__animated animate__fadeInUp">For Everyone</h3>
-                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Designed for Real Travelers</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                        <span class="audience-emoji">👨‍👩‍👧‍👦</span>
-                        <h4>Families</h4>
-                        <p>With multiple bags and young children</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                        <span class="audience-emoji">👴</span>
-                        <h4>Elderly Passengers</h4>
-                        <p>And people with accessibility needs</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                        <span class="audience-emoji">💼</span>
-                        <h4>Frequent Travelers</h4>
-                        <p>Who value speed and efficiency</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="audience-card wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
-                        <span class="audience-emoji">🌍</span>
-                        <h4>Peak Season Travelers</h4>
-                        <p>During holidays and high-demand periods</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Audience Section End -->
-
-    <!-- Future Section Start -->
-    <section class="future-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3 class="wow animate__animated animate__fadeInUp">Roadmap</h3>
-                <h2 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">Future Extensions</h2>
-                <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">This concept can evolve over time</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                        <h4>Smart Scheduling</h4>
-                        <p>Appointment slots to avoid congestion and optimize flow</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                        <h4>Digital Identity</h4>
-                        <p>Integration with airport digital identity systems</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                        <h4>Fleet Dispatch</h4>
-                        <p>Multi-robobus coordination based on real-time demand</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="future-item wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
-                        <h4>Premium Service</h4>
-                        <p>Concierge mode for business and first-class travelers</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Future Section End -->
-
-    <!-- CTA Section Start -->
-    <section id="contact" class="cta-section">
-        <div class="container">
-            <h2 class="wow animate__animated animate__fadeInUp">Let's pilot a departure experience people will remember.</h2>
-            <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">If your airport, airline, or smart city program is exploring next-generation passenger journeys, this concept is ready for discussion and roadmap planning.</p>
-           
-        </div>
-    </section>
-    <!-- CTA Section End -->
-
-    <!-- Footer Start -->
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Airport Robobus Concept. Transforming the airport departure experience.</p>
-        </div>
+        <p>© Qatar Mobility Innovations Center (QMIC). Transforming industries through intelligent innovation.</p>
     </footer>
-    <!-- Footer End -->
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- WOW.js for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
-        new WOW().init();
-    </script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Staggered animation delays for features
+        document.querySelectorAll('.feature-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
 </body>
 </html>
