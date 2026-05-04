@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Robobus | Mobile Café Experience in Luxury Districts</title>
+    <title>Personalized Museum Tour Guide | Context-Aware Layover Experience</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -19,16 +19,17 @@
 
     <style>
         :root {
-            --coffee-brown: #5d4037;
-            --espresso: #3e2723;
-            --latte: #d7ccc8;
-            --cream: #efebe9;
-            --caramel: #a1887f;
+            --museum-blue: #1a3a5c;
+            --deep-navy: #0d2035;
+            --sand: #d9c9a8;
+            --ivory: #f0ebe0;
+            --gold-light: #c9a84c;
             --gold-accent: #d4a574;
             --warm-white: #faf8f3;
             --pearl: #f5f2ed;
             --charcoal: #2c2c2c;
             --copper: #b87333;
+            --teal-accent: #2e7d8a;
         }
 
         * {
@@ -54,7 +55,7 @@
             background: rgba(250, 248, 243, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(93, 64, 55, 0.1);
+            border-bottom: 1px solid rgba(26, 58, 92, 0.1);
             animation: slideDown 0.8s ease-out;
         }
 
@@ -82,7 +83,7 @@
             font-family: 'Cinzel', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--coffee-brown);
+            color: var(--museum-blue);
             letter-spacing: 2px;
             text-decoration: none;
             transition: opacity 0.3s ease;
@@ -108,7 +109,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--coffee-brown);
+            color: var(--museum-blue);
         }
 
         /* Hero Section */
@@ -118,7 +119,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(135deg, rgba(2, 6, 23, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%), url('./assets/images/coffee/hero-coffee.png');
+            background: linear-gradient(135deg, rgba(2, 6, 23, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%), url('./assets/images/guide/hero-museum.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -134,7 +135,7 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(circle at 20% 50%, rgba(93, 64, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 50%, rgba(26, 58, 92, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(212, 165, 116, 0.06) 0%, transparent 50%);
             pointer-events: none;
         }
@@ -206,28 +207,29 @@
             border-radius: 0;
             transition: all 0.3s ease;
             letter-spacing: 1px;
-            border: 2px solid var(--coffee-brown);
+            border: 2px solid var(--museum-blue);
         }
 
         .btn-primary {
-            background: var(--coffee-brown);
+            background: var(--museum-blue);
             color: var(--warm-white);
         }
 
         .btn-primary:hover {
-            background: var(--espresso);
+            background: var(--deep-navy);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(93, 64, 55, 0.3);
+            box-shadow: 0 8px 20px rgba(26, 58, 92, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--coffee-brown);
+            color: var(--warm-white);
+            border-color: var(--warm-white);
         }
 
         .btn-secondary:hover {
-            background: var(--coffee-brown);
-            color: var(--warm-white);
+            background: var(--warm-white);
+            color: var(--museum-blue);
         }
 
         /* Section Styles */
@@ -260,7 +262,7 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
-            color: var(--coffee-brown);
+            color: var(--museum-blue);
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
         }
@@ -275,7 +277,8 @@
 
         /* Concept Section */
         .concept {
-            background: linear-gradient(to bottom, var(--warm-white), var(--pearl));
+           background: linear-gradient(to bottom, var(--warm-white), var(--pearl));
+       
         }
 
         .concept-grid {
@@ -288,7 +291,7 @@
         .concept-card {
             background: white;
             padding: 2.5rem;
-            border: 1px solid rgba(93, 64, 55, 0.1);
+            border: 1px solid rgba(26, 58, 92, 0.1);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -301,7 +304,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--caramel), var(--gold-accent));
+            background: linear-gradient(90deg, var(--teal-accent), var(--gold-accent));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
@@ -313,7 +316,7 @@
 
         .concept-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(93, 64, 55, 0.1);
+            box-shadow: 0 20px 40px rgba(26, 58, 92, 0.1);
         }
 
         .concept-icon {
@@ -324,7 +327,7 @@
         .concept-card h4 {
             font-family: 'Cinzel', serif;
             font-size: 1.4rem;
-            color: var(--coffee-brown);
+            color: var(--museum-blue);
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -338,7 +341,7 @@
 
         /* Experience Section */
         .experience {
-            background: var(--coffee-brown);
+            background: var(--museum-blue);
             color: var(--warm-white);
         }
 
@@ -351,7 +354,7 @@
         }
 
         .experience .section-description {
-            color: var(--cream);
+            color: var(--sand);
             opacity: 0.95;
         }
 
@@ -394,13 +397,13 @@
             line-height: 1.7;
         }
 
-        /* Story Section */
-        .storyboard-section {
-            background: var(--bg-light);
+        /* Journey / Storyboard Section */
+        .journey {
+            background: var(--pearl);
         }
 
         .story-item {
-            background: var(--white);
+            background: white;
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 50px;
@@ -427,7 +430,7 @@
             left: 20px;
             width: 70px;
             height: 70px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.35);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -437,63 +440,16 @@
             color: var(--warm-white);
         }
 
-        .story-content {
+        .journey-content {
             padding: 40px;
-        }
-
-        .story-content h3 {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-
-        .story-content p {
-            font-size: 17px;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Journey Section */
-        .journey {
-            background: var(--pearl);
-        }
-
-        .journey-steps {
-            margin-top: 4rem;
-            display: grid;
-            gap: 3rem;
-        }
-
-        .journey-step {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--coffee-brown);
-            color: var(--warm-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            flex-shrink: 0;
         }
 
         .journey-content h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: var(--coffee-brown);
-            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+            color: var(--museum-blue);
+            margin-bottom: 1rem;
             font-weight: 600;
-            padding: 10px;
         }
 
         .journey-content p {
@@ -501,7 +457,6 @@
             color: var(--charcoal);
             opacity: 0.85;
             line-height: 1.8;
-            padding: 10px;
         }
 
         /* Technology Section */
@@ -526,13 +481,13 @@
 
         .tech-item:hover {
             transform: translateX(10px);
-            box-shadow: 0 8px 30px rgba(93, 64, 55, 0.15);
+            box-shadow: 0 8px 30px rgba(26, 58, 92, 0.15);
         }
 
         .tech-item h4 {
             font-family: 'Cinzel', serif;
             font-size: 1.3rem;
-            color: var(--coffee-brown);
+            color: var(--museum-blue);
             margin-bottom: 0.8rem;
             font-weight: 600;
         }
@@ -560,19 +515,19 @@
             background: white;
             padding: 2.5rem;
             text-align: center;
-            border: 1px solid rgba(93, 64, 55, 0.1);
+            border: 1px solid rgba(26, 58, 92, 0.1);
             transition: all 0.3s ease;
         }
 
         .target-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(93, 64, 55, 0.1);
+            box-shadow: 0 15px 35px rgba(26, 58, 92, 0.1);
         }
 
         .target-card h4 {
             font-family: 'Cinzel', serif;
             font-size: 1.4rem;
-            color: var(--coffee-brown);
+            color: var(--museum-blue);
             margin-bottom: 1.5rem;
             font-weight: 600;
         }
@@ -591,7 +546,7 @@
         }
 
         .target-list li::before {
-            content: '☕';
+            content: '🏛️';
             position: absolute;
             left: 0;
             font-size: 1rem;
@@ -642,7 +597,7 @@
 
         /* CTA Section */
         .final-cta {
-            background: linear-gradient(135deg, var(--coffee-brown) 0%, var(--espresso) 100%);
+            background: linear-gradient(135deg, var(--museum-blue) 0%, var(--deep-navy) 100%);
             color: var(--warm-white);
             text-align: center;
             padding: 8rem 2rem;
@@ -670,13 +625,23 @@
 
         .final-cta .btn-primary {
             background: var(--gold-accent);
-            color: var(--espresso);
+            color: var(--deep-navy);
         }
 
         .final-cta .btn-primary:hover {
             background: var(--copper);
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .final-cta .btn-secondary {
+            background: transparent;
+            color: var(--warm-white);
+            border-color: var(--warm-white);
+        }
+
+        .final-cta .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         /* Footer */
@@ -705,17 +670,6 @@
 
             section {
                 padding: 4rem 1.5rem;
-            }
-
-            .journey-step {
-                grid-template-columns: 60px 1fr;
-                gap: 1.5rem;
-            }
-
-            .step-number {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
             }
 
             .story-image {
@@ -760,7 +714,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">← COFFEE ROBOBUS</a>
+            <a href="index.html" class="logo">← MUSEUM GUIDE</a>
             <ul class="nav-links">
                 <li><a href="#concept">Concept</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -773,12 +727,10 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Your Café & Gelateria. On Wheels.</h1>
-            <p class="subtitle">Mobile Coffee & Gelati Dino Ice Cream Shop</p>
+            <h1>Your Museum. Your Story. Your Tour.</h1>
+            <p class="subtitle">Personalized Museum Tour Guide with Context Awareness</p>
             <p class="description">
-                Experience artisanal coffee and premium Gelati Dino ice cream delivered by an autonomous robobus across
-                Mina District Corniche, Lusail, The Pearl, and Msheireb. Combining robotic precision with luxurious
-                ambiance for an unforgettable café and gelateria experience.
+                AI-driven application seamlessly orchestrates layover experience to transform transit time into cultural discovery powered by intelligent, context-aware technology
             </p>
             <div class="cta-buttons">
                 <a href="#journey" class="btn btn-primary">Explore the Journey</a>
@@ -792,46 +744,48 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Scenario Description</div>
-                <h2 class="section-title">A New Urban Café & Gelateria Culture</h2>
+                <h2 class="section-title">A Smarter Way to Experience Doha</h2>
                 <p class="section-description">
-                    An autonomous robobus that brings freshly prepared beverages and premium Gelati Dino ice cream
-                    directly to residents, professionals, and visitors across Doha's premium districts.
+                    An integrated, AI-powered tour ecosystem connecting Qatar Airways passengers to Doha's cultural
+                    landmarks during layovers — personalised, autonomous, and context-driven from start to finish
                 </p>
             </div>
             <div class="concept-grid">
                 <div class="concept-card fade-in">
-                    <div class="concept-icon">🤖</div>
-                    <h4>Robotic Barista</h4>
-                    <p>Advanced robotic arms prepare espresso, cappuccino, and specialty lattes with perfect consistency
-                        and hygiene</p>
+                    <div class="concept-icon">✈️</div>
+                    <h4>Inflight Configuration</h4>
+                    <p>Passengers configure their entire tour experience via the seatback entertainment system while
+                        still in the air, selecting museums, schedules, and notification preferences</p>
                 </div>
                 <div class="concept-card fade-in">
                     <div class="concept-icon">🚗</div>
-                    <h4>Autonomous Mobility</h4>
-                    <p>Follows predefined routes across luxury districts, stopping at high-footfall residential and
-                        commercial areas</p>
+                    <h4>Autonomous Transport</h4>
+                    <p>Karwa autonomous vehicles provide seamless door-to-door transfer between Hamad International
+                        Airport and cultural venues along the Doha Corniche</p>
                 </div>
                 <div class="concept-card fade-in">
-                    <div class="concept-icon">🛋️</div>
-                    <h4>Premium Seating</h4>
-                    <p>Comfortable interior with Arabic-style majlis, couple seating, or lounge arrangements for private
-                        enjoyment</p>
+                    <div class="concept-icon">🏛️</div>
+                    <h4>QR Ticket Access</h4>
+                    <p>Digital tickets generated during inflight setup allow instant, contactless entry to the Museum
+                        of Islamic Art and other venues without any queuing</p>
                 </div>
                 <div class="concept-card fade-in">
-                    <div class="concept-icon">🍦</div>
-                    <h4>Gelati Dino Ice Cream</h4>
-                    <p>Premium artisanal gelato from the renowned Gelati Dino brand with authentic Italian flavors and
-                        creative combinations</p>
+                    <div class="concept-icon">🔔</div>
+                    <h4>Context-Aware Alerts</h4>
+                    <p>Real-time notifications detect connections, nearby friends, and points of interest, dynamically
+                        adapting the tour itinerary to enrich the visitor experience</p>
                 </div>
                 <div class="concept-card fade-in">
-                    <div class="concept-icon">✨</div>
-                    <h4>Experiential Design</h4>
-                    <p>Thoughtfully designed interior with ambient lighting, modern finishes, and climate control</p>
+                    <div class="concept-icon">🛺</div>
+                    <h4>Museum Pod Mobility</h4>
+                    <p>Dedicated autonomous bubble pods navigate park pathways, ferrying visitors between museum
+                        buildings, gardens, and social meeting points</p>
                 </div>
                 <div class="concept-card fade-in">
                     <div class="concept-icon">📱</div>
-                    <h4>Digital Ordering</h4>
-                    <p>Touchscreen and QR-based menus with contactless payment and real-time order tracking</p>
+                    <h4>Seamless Commerce</h4>
+                    <p>In-pod ordering for refreshments and digital souvenirs, with integrated airline loyalty
+                        benefits and baggage upgrades purchasable in a single tap</p>
                 </div>
             </div>
         </div>
@@ -841,52 +795,54 @@
     <section class="experience" id="experience">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Vehicle Layout & Design</div>
-                <h2 class="section-title">Crafted for Coffee & Gelato Excellence</h2>
+                <div class="section-tag">Platform Features</div>
+                <h2 class="section-title">Crafted for Cultural Discovery</h2>
                 <p class="section-description">
-                    Every detail designed to create a unique café and gelateria experience on wheels
+                    Every touchpoint designed to create a seamless, intelligent, and memorable layover experience
                 </p>
             </div>
             <div class="features-grid">
                 <div class="feature fade-in">
-                    <div class="feature-icon">🪑</div>
-                    <h3>Flexible Seating Options</h3>
-                    <p>Traditional Arabic majlis-inspired seating, two-seat arrangements for couples, bean bags for
-                        relaxation, or small family configurations</p>
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Adaptive Itinerary</h3>
+                    <p>The tour plan continuously adjusts based on real-time context — friend detections, transit
+                        times, gallery crowds — ensuring an optimised schedule throughout</p>
                 </div>
                 <div class="feature fade-in">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Privacy & Ambiance</h3>
-                    <p>Soft partitions, seating zones, warm ambient lighting, and decorative panels create intimate
-                        spaces</p>
-                </div>
-                <div class="feature fade-in">
-                    <div class="feature-icon">🍦</div>
-                    <h3>Gelati Dino Display</h3>
-                    <p>Premium gelato freezer showcasing authentic Italian ice cream flavors with temperature-controlled
-                        storage ensuring perfect consistency</p>
-                </div>
-                <div class="feature fade-in">
-                    <div class="feature-icon">☕</div>
-                    <h3>Visible Preparation</h3>
-                    <p>Glass panels allow customers to observe robotic coffee preparation and gelato serving in
-                        hygienic, enclosed zones</p>
+                    <div class="feature-icon">👤</div>
+                    <h3>Personalised Preferences</h3>
+                    <p>Visitor interests, past museum visits, and loyalty profiles inform every recommendation —
+                        from gallery selection to souvenir curation</p>
                 </div>
                 <div class="feature fade-in">
                     <div class="feature-icon">📺</div>
-                    <h3>Integrated Displays</h3>
-                    <p>Screens showing visual content, brand storytelling, menu boards, and order status updates</p>
+                    <h3>In-Vehicle Displays</h3>
+                    <p>Integrated screens in autonomous vehicles surface personalised content about passing
+                        attractions, upcoming events, and live travel information</p>
                 </div>
                 <div class="feature fade-in">
-                    <div class="feature-icon">❄️</div>
-                    <h3>Climate Control</h3>
-                    <p>Advanced HVAC system maintains perfect temperature and comfort throughout the journey</p>
+                    <div class="feature-icon">🤝</div>
+                    <h3>Social Connectivity</h3>
+                    <p>Context-aware notifications detect known connections visiting the same venue, enabling
+                        spontaneous meet-ups and shared experiences</p>
                 </div>
                 <div class="feature fade-in">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Premium Branding</h3>
-                    <p>Modern finishes reflecting both coffee brand identity and Lusail's contemporary urban character
-                    </p>
+                    <div class="feature-icon">🚁</div>
+                    <h3>Drone Delivery</h3>
+                    <p>Souvenirs purchased inside a moving pod are dispatched via autonomous delivery drone,
+                        arriving at the visitor's next location moments later</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🎬</div>
+                    <h3>AI Tour Recap</h3>
+                    <p>At the end of the visit, an AI-generated highlight video and photo summary is created,
+                        allowing travellers to relive the layover experience on their return flight</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">🎫</div>
+                    <h3>Loyalty Integration</h3>
+                    <p>Qatar Airways Privilege Club rewards flow seamlessly into the experience, unlocking
+                        exclusive offers, baggage upgrades, and curated souvenir selections</p>
                 </div>
             </div>
         </div>
@@ -896,124 +852,243 @@
     <section class="journey" id="journey">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag wow animate__animated animate__fadeInUp">User Experience</div>
-                <h2 class="section-title wow animate__animated animate__fadeInUp">The Journey</h2>
-                <p class="section-description wow animate__animated animate__fadeInUp">
-                    From discovery to enjoyment, every step is seamless and delightful
+                <div class="section-tag">User Experience</div>
+                <h2 class="section-title">Bob's Journey</h2>
+                <p class="section-description">
+                    From booking in London to a farewell at MIA Park — follow Bob's seamless layover adventure
                 </p>
             </div>
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="1s">
+
+            <!-- Step 1 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="story-image">
                             <div class="story-number">1</div>
-                            <img class="story-img" src="./assets/images/coffee/step-1.png" alt="Discover & Approach"
-                                loading="lazy">
+                            <img class="story-img" src="./assets/images/guide/step-1.png" alt="Booking the Tour" loading="lazy">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="journey-content">
-                            <h3>Discover & Approach</h3>
-                            <p>Spot the Coffee Robobus through digital signage, social media, or while strolling
-                                through
-                                luxury districts. Approach the vehicle at designated stops or when it parks nearby.</p>
+                            <h3>Booking the Tour</h3>
+                            <p>Bob, a London-based traveller and Qatar Airways regular, is planning his trip to Hong Kong.
+                                Recognising his 8-hour transfer in Doha, Qatar Airways presents a personalised museum tour
+                                offer during the layover. A lover of Qatar's cultural attractions, Bob readily accepts while
+                                finalising his booking from the comfort of home.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="2s">
+
+            <!-- Step 2 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
                         <div class="story-image">
                             <div class="story-number">2</div>
-                            <img class="story-img" src="./assets/images/coffee/step-2.png" alt="Browse Digital Menu"
-                                loading="lazy">
+                            <img class="story-img" src="./assets/images/guide/step-2.png" alt="Configuring the Guide" loading="lazy">
                         </div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="journey-content">
-                            <h3>Browse Digital Menu</h3>
-                            <p>View available coffee drinks, Gelati Dino ice cream flavors, and current promotions on
-                                digital displays with detailed descriptions and pricing.</p>
+                            <h3>Configuring the Guide</h3>
+                            <p>En route to Doha aboard the Qatar Airways cabin, Bob uses the inflight entertainment system
+                                to configure his upcoming tour. He selects the Museum of Islamic Art (MIA) in the Al Corniche
+                                area via the large seatback screen, finalises a schedule that fits within his transit time,
+                                and activates the context-aware notification service</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="3s">
+
+            <!-- Step 3 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="story-image">
                             <div class="story-number">3</div>
-                            <img class="story-img" src="./assets/images/coffee/step-3.png" alt="Customize & Order"
-                                loading="lazy">
+                            <img class="story-img" src="./assets/images/guide/step-3.png" alt="Welcoming Bob at HIA" loading="lazy">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="journey-content">
-                            <h3>Customize & Order</h3>
-                            <p>Place your order via touchscreen or QR code, customizing coffee (size, milk type,
-                                sweetness, add-ons) or selecting your favorite Gelati Dino gelato flavors and
-                                combinations.</p>
+                            <h3>Welcoming Bob at HIA</h3>
+                            <p>Upon landing at Hamad International Airport (HIA), Bob is met with personalised service
+                                the moment he steps out of the terminal. A sleek white-and-maroon Karwa autonomous vehicle
+                                waits with a prominent digital sign welcoming him by his chosen nickname — "BOBBY-Q"</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="4s">
+
+            <!-- Step 4 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="0.8s">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
                         <div class="story-image">
                             <div class="story-number">4</div>
-                            <img class="story-img" src="./assets/images/coffee/step-4.png" alt="Contactless Payment"
-                                loading="lazy">
+                            <img class="story-img" src="./assets/images/guide/step-4.png" alt="Transfer to the Museum" loading="lazy">
                         </div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="journey-content">
-                            <h3>Contactless Payment</h3>
-                            <p>Complete secure payment through integrated POS system with support for all major payment
-                                methods.
-                            </p>
+                            <h3>Transfer from HIA to the Museum</h3>
+                            <p>Relaxing inside the Karwa autonomous vehicle, Bob enjoys the smooth ride along the Doha
+                                Corniche towards the museum. An integrated display screen surfaces personalised information
+                                about passing attractions and upcoming events, curated to match the preferences he configured
+                                on his flight</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="4s">
+
+            <!-- Step 5 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="1s">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="story-image">
                             <div class="story-number">5</div>
-                            <img class="story-img" src="./assets/images/coffee/step-5.png" alt="Watch Preparation"
-                                loading="lazy">
+                            <img class="story-img" src="./assets/images/guide/step-5.png" alt="Arriving at the Museum" loading="lazy">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="journey-content">
-                            <h3>Watch Preparation</h3>
-                            <p>Observe as the robotic barista expertly crafts your coffee or as premium Gelati Dino
-                                gelato
-                                is carefully served, ensuring perfect quality every time.</p>
+                            <h3>Arriving at the Islamic Museum</h3>
+                            <p>The Karwa vehicle arrives at the stunning geometric Museum of Islamic Art. Bob steps out
+                                and walks directly to the main entrance gate, entering seamlessly by scanning the QR-code
+                                ticket generated and sent to his mobile phone during the inflight configuration — no queues,
+                                no delays</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="5s">
+
+            <!-- Step 6 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="1.2s">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
                         <div class="story-image">
                             <div class="story-number">6</div>
-                            <img class="story-img" src="./assets/images/coffee/step-6.png" alt="Choose Your Experience"
-                                loading="lazy">
+                            <img class="story-img" src="./assets/images/guide/step-6.png" alt="Nearby Friend Notification" loading="lazy">
                         </div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="journey-content">
-                            <h3>Choose Your Experience</h3>
-                            <p>Sit inside enjoying the premium ambiance and comfortable seating, or take your order to
-                                enjoy outside nearby.</p>
+                            <h3>Receiving a Nearby Friend Notification</h3>
+                            <p>While immersed in the Textiles gallery, Bob's phone vibrates. The context-aware service he
+                                activated has detected a familiar connection nearby: Alice, a friend from a previous Qatar
+                                Museum visit. The notification displays Alice's picture and her current location in the
+                                adjacent MIA Park</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Step 7 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="1.4s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">7</div>
+                            <img class="story-img" src="./assets/images/guide/step-7.png" alt="Messaging Alice" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="journey-content">
+                            <h3>Messaging Alice</h3>
+                            <p>Bob immediately messages Alice via the app, proposing a meeting in MIA Park in one hour.
+                                Alice agrees. Bob accepts the suggested itinerary update — the tour plan adjusts automatically
+                                and a dedicated Museum Autonomous Mobile Pod is dispatched to facilitate his short transfer
+                                to Alice's location in the park</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="1.6s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">8</div>
+                            <img class="story-img" src="./assets/images/guide/step-8.png" alt="Pod Ride to MIA Park" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="journey-content">
+                            <h3>Driving to Alice's Location in MIA Park</h3>
+                            <p>Having concluded his museum visit, Bob exits the building to find the allocated Museum
+                                Autonomous Mobile Pod waiting. The smaller, agile, transparent bubble vehicle navigates
+                                park pathways with a short, scenic drive through the greenery toward Alice's location
+                                by the waterfront</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 9 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="1.8s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">9</div>
+                            <img class="story-img" src="./assets/images/guide/step-9.png" alt="Ordering Refreshments" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="journey-content">
+                            <h3>Ordering Refreshments & Purchasing Souvenirs</h3>
+                            <p>While the transparent Pod winds through the park, Bob takes advantage of onboard services.
+                                He orders a Dino brand ice cream from the internal display, while a curated selection of
+                                digital souvenirs appears alongside a Qatar Airways offer for an extra 7 kg baggage allowance.
+                                Bob accepts the offer and finalises his purchases seamlessly inside the moving pod</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 10 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="2s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">10</div>
+                            <img class="story-img" src="./assets/images/guide/step-10.png" alt="Meeting Alice" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="journey-content">
+                            <h3>Meeting Alice with Refreshments</h3>
+                            <p>The Pod arrives at Alice's location by the water's edge in MIA Park, where a cheerful
+                                Coffee Robobus serves coffees and ice creams. They enjoy their refreshments together at
+                                a nearby table. Moments later, a small autonomous Museum Delivery drone arrives, dropping
+                                off the souvenirs Bob purchased just minutes earlier inside the pod</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 11 -->
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="2.2s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">11</div>
+                            <img class="story-img" src="./assets/images/guide/step-11.png" alt="Driving Back to the Airport" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="journey-content">
+                            <h3>Driving Back to the Airport</h3>
+                            <p>Bob bids Alice farewell. Right on schedule, a Karwa Autonomous vehicle picks him up from
+                                the MIA Park entrance. As the vehicle merges onto the highway toward Hamad International
+                                Airport, the large interior display generates a personalised tour summary — key pictures
+                                and an AI-generated short video clip, letting him relive the entire layover experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1024,44 +1099,49 @@
                 <div class="section-tag">Technology Enablers</div>
                 <h2 class="section-title">Advanced Systems Integration</h2>
                 <p class="section-description">
-                    Cutting-edge technology powering seamless operations and exceptional experiences
+                    Cutting-edge technologies working in concert to deliver a flawless, context-aware museum experience
                 </p>
             </div>
             <div class="tech-grid">
                 <div class="tech-item fade-in">
-                    <h4>Autonomous Navigation</h4>
-                    <p>Geo-fenced routes with LiDAR, cameras, and radar for safe navigation and obstacle avoidance in
-                        urban environments</p>
+                    <h4>Context-Aware AI Engine</h4>
+                    <p>Real-time analysis of visitor location, behaviour, social connections, and schedule to
+                        dynamically update itineraries and surface relevant notifications</p>
                 </div>
                 <div class="tech-item fade-in">
-                    <h4>Robotic Coffee & Gelato Service</h4>
-                    <p>Automated robotic arms with integrated coffee systems and precision gelato serving equipment for
-                        consistent quality and presentation</p>
+                    <h4>Autonomous Vehicle Fleet</h4>
+                    <p>Karwa autonomous vehicles and Museum Mobile Pods equipped with LiDAR, cameras, and radar
+                        for safe, geo-fenced navigation through urban and park environments</p>
                 </div>
                 <div class="tech-item fade-in">
-                    <h4>Temperature-Controlled Storage</h4>
-                    <p>Advanced freezing systems maintaining optimal gelato texture and freshness with separate climate
-                        zones for coffee and ice cream</p>
+                    <h4>Inflight Configuration System</h4>
+                    <p>Integrated seatback entertainment API allowing passengers to plan, configure, and activate
+                        their entire layover tour while still aboard the Qatar Airways flight</p>
                 </div>
                 <div class="tech-item fade-in">
-                    <h4>IoT Kitchen Equipment</h4>
-                    <p>Connected appliances with real-time monitoring of ingredient levels, temperature, and equipment
-                        performance</p>
+                    <h4>QR & Digital Ticketing</h4>
+                    <p>Instant ticket generation and delivery to mobile wallets enabling contactless, queue-free
+                        entry at museum gates and cultural attractions</p>
                 </div>
                 <div class="tech-item fade-in">
-                    <h4>Digital Ordering Platform</h4>
-                    <p>Touchscreen and QR-based ordering system with customization options and real-time order tracking
-                        displays</p>
+                    <h4>Social Proximity Detection</h4>
+                    <p>Opt-in friend and connection detection using anonymised Bluetooth and venue check-in data
+                        to enable spontaneous social meet-ups within the tour ecosystem</p>
                 </div>
                 <div class="tech-item fade-in">
-                    <h4>Fleet Management</h4>
-                    <p>Remote monitoring platform for vehicle location, sales data, inventory levels, and maintenance
-                        scheduling</p>
+                    <h4>Autonomous Drone Delivery</h4>
+                    <p>Last-mile souvenir and refreshment delivery via museum-operated autonomous drones, guided
+                        by GPS to the visitor's precise park location</p>
                 </div>
                 <div class="tech-item fade-in">
-                    <h4>5G Connectivity</h4>
-                    <p>High-speed wireless connection for operations, updates, payment processing, and customer
-                        communications</p>
+                    <h4>AI Content Generation</h4>
+                    <p>On-trip photo capture and post-visit AI video synthesis create a personalised highlight
+                        reel delivered to the passenger before their return flight boards</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Loyalty & Commerce Integration</h4>
+                    <p>Deep integration with Qatar Airways Privilege Club enabling real-time offer redemption,
+                        baggage upgrades, and personalised retail within a single in-pod transaction</p>
                 </div>
             </div>
         </div>
@@ -1072,45 +1152,43 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Target Customers</div>
-                <h2 class="section-title">Serving Doha's Premium Districts</h2>
+                <h2 class="section-title">Serving Travellers & Partners</h2>
                 <p class="section-description">
-                    Tailored for the diverse communities of Mina District Corniche, Lusail, The Pearl, Msheireb, and
-                    other prime Doha locations
+                    Designed for Qatar Airways transit passengers, cultural institutions, and the broader Doha tourism ecosystem
                 </p>
             </div>
             <div class="target-grid">
                 <div class="target-card fade-in">
                     <h4>End Users</h4>
                     <ul class="target-list">
-                        <li>Mina District Corniche visitors</li>
-                        <li>Lusail City residents</li>
-                        <li>The Pearl community members</li>
-                        <li>Office workers and business professionals</li>
-                        <li>Students and daily commuters</li>
-                        <li>Tourists exploring Doha's waterfront</li>
-                        <li>Couples and families seeking premium experiences</li>
+                        <li>Qatar Airways transit passengers</li>
+                        <li>Cultural tourism enthusiasts</li>
+                        <li>Business travellers on layovers</li>
+                        <li>Families seeking enriching experiences</li>
+                        <li>Frequent flyers with loyalty profiles</li>
+                        <li>Solo travellers exploring Doha</li>
                     </ul>
                 </div>
                 <div class="target-card fade-in">
-                    <h4>Business Clients</h4>
+                    <h4>Business Partners</h4>
                     <ul class="target-list">
-                        <li>Gelati Dino ice cream brand</li>
-                        <li>Local coffee brands operating the robobus</li>
-                        <li>Food and beverage vendors</li>
-                        <li>Specialty coffee roasters</li>
-                        <li>Premium dessert suppliers</li>
-                        <li>Event organizers requesting on-site service</li>
+                        <li>Qatar Museums Authority</li>
+                        <li>Museum of Islamic Art (MIA)</li>
+                        <li>Qatar Airways Privilege Club</li>
+                        <li>Karwa autonomous mobility</li>
+                        <li>Dino Ice Cream brand</li>
+                        <li>Souvenir and retail vendors</li>
                     </ul>
                 </div>
                 <div class="target-card fade-in">
                     <h4>Stakeholders</h4>
                     <ul class="target-list">
-                        <li>Lusail City management</li>
-                        <li>Municipal authorities</li>
-                        <li>Payment service providers</li>
-                        <li>Digital ordering platforms</li>
-                        <li>Robotics and automation suppliers</li>
-                        <li>Maintenance and logistics partners</li>
+                        <li>Qatar Tourism Authority</li>
+                        <li>Hamad International Airport</li>
+                        <li>Ministry of Culture & Sports</li>
+                        <li>Autonomous mobility regulators</li>
+                        <li>Digital payment providers</li>
+                        <li>AI and drone technology partners</li>
                     </ul>
                 </div>
             </div>
@@ -1122,36 +1200,38 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Value Proposition</div>
-                <h2 class="section-title">Why Coffee Robobus</h2>
+                <h2 class="section-title">Why Personalised Museum Guide</h2>
             </div>
             <div class="value-grid">
                 <div class="value-card fade-in">
-                    <h4>Convenience</h4>
-                    <p>Brings freshly prepared coffee and food directly to customers across luxury districts without
-                        fixed location constraints</p>
+                    <h4>Effortless Planning</h4>
+                    <p>Entire layover experience configured inflight — no research, no booking, no stress upon arrival
+                        at a new destination</p>
                 </div>
                 <div class="value-card fade-in">
-                    <h4>Speed & Efficiency</h4>
-                    <p>Reduces wait times through automated robotic drink preparation with minimal human intervention
-                    </p>
+                    <h4>True Personalisation</h4>
+                    <p>Every aspect — galleries, transport, notifications, retail — adapts to the individual traveller's
+                        interests, history, and real-time context</p>
                 </div>
                 <div class="value-card fade-in">
-                    <h4>Consistent Quality</h4>
-                    <p>Delivers perfect food and drink quality every time through precision robotic systems</p>
+                    <h4>Zero Friction Access</h4>
+                    <p>QR ticketing, autonomous vehicles, and contactless payments remove every physical queue and
+                        administrative barrier from the visitor journey</p>
                 </div>
                 <div class="value-card fade-in">
-                    <h4>Unique Experience</h4>
-                    <p>Creates engaging, memorable moments by showcasing robotic barista technology in premium settings
-                    </p>
+                    <h4>Memorable Experiences</h4>
+                    <p>Spontaneous social connections, scenic pod rides, and AI-generated recaps transform a layover
+                        into a genuinely memorable cultural event</p>
                 </div>
                 <div class="value-card fade-in">
-                    <h4>Operational Excellence</h4>
-                    <p>Lowers costs compared to traditional cafés through automation and flexible deployment model</p>
+                    <h4>Airline Loyalty Value</h4>
+                    <p>Integrated Privilege Club benefits, on-the-spot baggage upgrades, and curated retail deepen
+                        passenger engagement and brand affinity</p>
                 </div>
                 <div class="value-card fade-in">
-                    <h4>Flexibility</h4>
-                    <p>Offers dine-in comfort with enhanced privacy or convenient takeaway options to suit customer
-                        preferences</p>
+                    <h4>Doha as Destination</h4>
+                    <p>Positions Qatar as a world-class cultural hub, turning transit passengers into advocates for
+                        Doha's museums, parks, and unique urban experiences</p>
                 </div>
             </div>
         </div>
@@ -1160,10 +1240,9 @@
     <!-- Final CTA -->
     <section class="final-cta">
         <div class="container">
-            <h2>Ready to Transform Urban Coffee Culture?</h2>
-            <p>Join the future of mobile café experiences with an autonomous platform that combines artisanal quality,
-                robotic precision, and luxury ambiance. Perfect for coffee brands and hospitality operators in premium
-                districts.</p>
+            <h2>Ready to Transform the Layover Experience?</h2>
+            <p>Join the future of personalised travel — where every transit becomes a cultural journey, powered by
+                intelligent context awareness, autonomous mobility, and seamless airline integration.</p>
             <div class="cta-buttons">
                 <a href="#" class="btn btn-primary">Partner With Us</a>
                 <a href="#" class="btn btn-secondary">Learn More</a>
@@ -1173,7 +1252,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Coffee Robobus. Redefining mobile café experiences in luxury districts.</p>
+        <p>© 2026 Personalised Museum Tour Guide. Transforming transit into cultural discovery across Doha.</p>
     </footer>
 
     <script>

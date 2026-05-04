@@ -8,6 +8,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
     <style>
         :root {
             --coffee-brown: #5d4037;
@@ -109,7 +118,10 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(135deg, var(--warm-white) 0%, var(--pearl) 50%, var(--latte) 100%);
+            background: linear-gradient(135deg, rgba(2, 6, 23, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%), url('./assets/images/coffee/hero-coffee.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 8rem 2rem 4rem;
             overflow: hidden;
         }
@@ -138,7 +150,7 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.5rem, 8vw, 5.5rem);
             font-weight: 900;
-            color: var(--coffee-brown);
+            color: var(--warm-white);
             margin-bottom: 1.5rem;
             line-height: 1.1;
             letter-spacing: -1px;
@@ -148,7 +160,7 @@
         .hero .subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(1.3rem, 3vw, 2rem);
-            color: var(--charcoal);
+            color: var(--warm-white);
             margin-bottom: 2rem;
             font-weight: 400;
             font-style: italic;
@@ -159,7 +171,7 @@
             font-size: clamp(1.1rem, 2vw, 1.35rem);
             max-width: 850px;
             margin: 0 auto 3rem;
-            color: var(--charcoal);
+            color: var(--warm-white);
             opacity: 0.9;
             animation: fadeInUp 1s ease-out 0.6s both;
             line-height: 1.8;
@@ -382,104 +394,114 @@
             line-height: 1.7;
         }
 
+        /* Story Section */
+        .storyboard-section {
+            background: var(--bg-light);
+        }
+
+        .story-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .story-image .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--warm-white);
+        }
+
+        .story-content {
+            padding: 40px;
+        }
+
+        .story-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .story-content p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
         /* Journey Section */
         .journey {
-            background: var(--warm-white);
+            background: var(--pearl);
         }
 
         .journey-steps {
             margin-top: 4rem;
+            display: grid;
+            gap: 3rem;
         }
 
         .journey-step {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 6rem;
-            align-items: center;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
         }
 
-        .journey-step:nth-child(even) {
-            direction: rtl;
-        }
-
-        .journey-step:nth-child(even)>* {
-            direction: ltr;
-        }
-
-        .journey-image {
-            background: linear-gradient(135deg, var(--golf-green-light), var(--fairway));
-            height: 400px;
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--coffee-brown);
+            color: var(--warm-white);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid var(--gold);
-            position: relative;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .journey-image.has-photo {
-            background: none;
-        }
-
-        .journey-image.has-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .journey-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                repeating-linear-gradient(90deg,
-                    transparent,
-                    transparent 40px,
-                    rgba(255, 255, 255, 0.03) 40px,
-                    rgba(255, 255, 255, 0.03) 80px);
-        }
-
-        .journey-image.has-photo::before {
-            display: none;
-        }
-
-        .journey-number {
             font-family: 'Playfair Display', serif;
-            font-size: 10rem;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.15);
-            position: relative;
-            z-index: 1;
+            font-size: 2rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
         .journey-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--golf-green);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .journey-content .step-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--coffee-brown);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            padding: 10px;
         }
 
         .journey-content p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--charcoal);
             opacity: 0.85;
             line-height: 1.8;
+            padding: 10px;
         }
 
         /* Technology Section */
@@ -695,6 +717,10 @@
                 height: 60px;
                 font-size: 1.5rem;
             }
+
+            .story-image {
+                height: 300px;
+            }
         }
 
         @media (max-width: 640px) {
@@ -747,12 +773,12 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Your Café. On Wheels.</h1>
-            <p class="subtitle">Mobile Coffee & Light Food Shop in Luxury Districts</p>
+            <h1>Your Café & Gelateria. On Wheels.</h1>
+            <p class="subtitle">Mobile Coffee & Gelati Dino Ice Cream Shop</p>
             <p class="description">
-                Experience artisanal coffee and premium light meals delivered by an autonomous robobus across Lusail,
-                The Pearl, and Msheireb. Combining robotic precision with luxurious ambiance for an unforgettable café
-                experience.
+                Experience artisanal coffee and premium Gelati Dino ice cream delivered by an autonomous robobus across
+                Mina District Corniche, Lusail, The Pearl, and Msheireb. Combining robotic precision with luxurious
+                ambiance for an unforgettable café and gelateria experience.
             </p>
             <div class="cta-buttons">
                 <a href="#journey" class="btn btn-primary">Explore the Journey</a>
@@ -766,10 +792,10 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Scenario Description</div>
-                <h2 class="section-title">A New Urban Coffee Culture</h2>
+                <h2 class="section-title">A New Urban Café & Gelateria Culture</h2>
                 <p class="section-description">
-                    An autonomous robobus that brings freshly prepared beverages and light meals directly to residents,
-                    professionals, and visitors across premium districts.
+                    An autonomous robobus that brings freshly prepared beverages and premium Gelati Dino ice cream
+                    directly to residents, professionals, and visitors across Doha's premium districts.
                 </p>
             </div>
             <div class="concept-grid">
@@ -792,9 +818,10 @@
                         enjoyment</p>
                 </div>
                 <div class="concept-card fade-in">
-                    <div class="concept-icon">🍽️</div>
-                    <h4>Light Food Service</h4>
-                    <p>Ready-to-serve meals, mini bites, and pre-prepared heated food with automated handling</p>
+                    <div class="concept-icon">🍦</div>
+                    <h4>Gelati Dino Ice Cream</h4>
+                    <p>Premium artisanal gelato from the renowned Gelati Dino brand with authentic Italian flavors and
+                        creative combinations</p>
                 </div>
                 <div class="concept-card fade-in">
                     <div class="concept-icon">✨</div>
@@ -815,9 +842,9 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Vehicle Layout & Design</div>
-                <h2 class="section-title">Crafted for Comfort & Convenience</h2>
+                <h2 class="section-title">Crafted for Coffee & Gelato Excellence</h2>
                 <p class="section-description">
-                    Every detail designed to create a unique café experience on wheels
+                    Every detail designed to create a unique café and gelateria experience on wheels
                 </p>
             </div>
             <div class="features-grid">
@@ -834,10 +861,16 @@
                         spaces</p>
                 </div>
                 <div class="feature fade-in">
+                    <div class="feature-icon">🍦</div>
+                    <h3>Gelati Dino Display</h3>
+                    <p>Premium gelato freezer showcasing authentic Italian ice cream flavors with temperature-controlled
+                        storage ensuring perfect consistency</p>
+                </div>
+                <div class="feature fade-in">
                     <div class="feature-icon">☕</div>
                     <h3>Visible Preparation</h3>
-                    <p>Glass panels allow customers to observe robotic coffee preparation in a hygienic, enclosed
-                        brewing zone</p>
+                    <p>Glass panels allow customers to observe robotic coffee preparation and gelato serving in
+                        hygienic, enclosed zones</p>
                 </div>
                 <div class="feature fade-in">
                     <div class="feature-icon">📺</div>
@@ -863,76 +896,121 @@
     <section class="journey" id="journey">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">User Experience</div>
-                <h2 class="section-title">The Journey</h2>
-                <p class="section-description">
+                <div class="section-tag wow animate__animated animate__fadeInUp">User Experience</div>
+                <h2 class="section-title wow animate__animated animate__fadeInUp">The Journey</h2>
+                <p class="section-description wow animate__animated animate__fadeInUp">
                     From discovery to enjoyment, every step is seamless and delightful
                 </p>
             </div>
-            <div class="journey-steps">
-                <div class="journey-step fade-in">
-                    <div class="journey-image has-photo">
-                        <img src="./assets/images/coffee/step-1.png" alt="Discover & Approach">
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="1s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">1</div>
+                            <img class="story-img" src="./assets/images/coffee/step-1.png" alt="Discover & Approach"
+                                loading="lazy">
+                        </div>
                     </div>
-                    <div class="journey-content">
-                        <h3>Discover & Approach</h3>
-                        <p>Spot the autonomous robobus in your luxury district or receive arrival notifications via
-                            mobile app at designated stops.</p>
-                    </div>
-                </div>
-
-                <div class="journey-step fade-in">
-                    <div class="journey-image has-photo">
-                        <img src="./assets/images/coffee/step-2.png" alt="Browse Digital Menu">
-                    </div>
-                    <div class="journey-content">
-                        <h3>Browse Digital Menu</h3>
-                        <p>View available drinks, food items, and current promotions on digital displays with detailed
-                            descriptions and pricing.</p>
+                    <div class="col-lg-6">
+                        <div class="journey-content">
+                            <h3>Discover & Approach</h3>
+                            <p>Spot the Coffee Robobus through digital signage, social media, or while strolling
+                                through
+                                luxury districts. Approach the vehicle at designated stops or when it parks nearby.</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="journey-step fade-in">
-                    <div class="journey-image has-photo">
-                        <img src="./assets/images/coffee/step-3.png" alt="Customize & Order">
+            </div>
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="2s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">2</div>
+                            <img class="story-img" src="./assets/images/coffee/step-2.png" alt="Browse Digital Menu"
+                                loading="lazy">
+                        </div>
                     </div>
-                    <div class="journey-content">
-                        <h3>Customize & Order</h3>
-                        <p>Place your order via touchscreen or QR code, customizing size, milk type, sweetness level,
-                            and add-ons to your preference.</p>
-                    </div>
-                </div>
-
-                <div class="journey-step fade-in">
-                    <div class="journey-image has-photo">
-                        <img src="./assets/images/coffee/step-4.png" alt="Contactless Payment">
-                    </div>
-                    <div class="journey-content">
-                        <h3>Contactless Payment</h3>
-                        <p>Complete secure payment through integrated POS system with support for all major payment
-                            methods.</p>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="journey-content">
+                            <h3>Browse Digital Menu</h3>
+                            <p>View available coffee drinks, Gelati Dino ice cream flavors, and current promotions on
+                                digital displays with detailed descriptions and pricing.</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="journey-step fade-in">
-                    <div class="journey-image has-photo">
-                        <img src="./assets/images/coffee/step-5.png" alt="Watch Preparation">
+            </div>
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="3s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">3</div>
+                            <img class="story-img" src="./assets/images/coffee/step-3.png" alt="Customize & Order"
+                                loading="lazy">
+                        </div>
                     </div>
-                    <div class="journey-content">
-                        <h3>Watch Preparation</h3>
-                        <p>Observe as the robotic barista expertly crafts your coffee in full view, ensuring perfect
-                            quality every time.</p>
+                    <div class="col-lg-6">
+                        <div class="journey-content">
+                            <h3>Customize & Order</h3>
+                            <p>Place your order via touchscreen or QR code, customizing coffee (size, milk type,
+                                sweetness, add-ons) or selecting your favorite Gelati Dino gelato flavors and
+                                combinations.</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="journey-step fade-in">
-                    <div class="journey-image has-photo">
-                        <img src="./assets/images/coffee/step-6.png" alt="Enjoy Your Coffee">
+            </div>
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="4s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">4</div>
+                            <img class="story-img" src="./assets/images/coffee/step-4.png" alt="Contactless Payment"
+                                loading="lazy">
+                        </div>
                     </div>
-                    <div class="journey-content">
-                        <h3>Choose Your Experience</h3>
-                        <p>Sit inside enjoying the premium ambiance and comfortable seating, or take your order to enjoy
-                            outside nearby.</p>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="journey-content">
+                            <h3>Contactless Payment</h3>
+                            <p>Complete secure payment through integrated POS system with support for all major payment
+                                methods.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="4s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="story-image">
+                            <div class="story-number">5</div>
+                            <img class="story-img" src="./assets/images/coffee/step-5.png" alt="Watch Preparation"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="journey-content">
+                            <h3>Watch Preparation</h3>
+                            <p>Observe as the robotic barista expertly crafts your coffee or as premium Gelati Dino
+                                gelato
+                                is carefully served, ensuring perfect quality every time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="story-item wow animate__animated animate__fadeInUp" data-wow-delay="5s">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="story-image">
+                            <div class="story-number">6</div>
+                            <img class="story-img" src="./assets/images/coffee/step-6.png" alt="Choose Your Experience"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="journey-content">
+                            <h3>Choose Your Experience</h3>
+                            <p>Sit inside enjoying the premium ambiance and comfortable seating, or take your order to
+                                enjoy outside nearby.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -956,9 +1034,14 @@
                         urban environments</p>
                 </div>
                 <div class="tech-item fade-in">
-                    <h4>Robotic Coffee Preparation</h4>
-                    <p>Automated robotic arms with integrated grinders, espresso machines, and milk frothing systems for
-                        consistent quality</p>
+                    <h4>Robotic Coffee & Gelato Service</h4>
+                    <p>Automated robotic arms with integrated coffee systems and precision gelato serving equipment for
+                        consistent quality and presentation</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <h4>Temperature-Controlled Storage</h4>
+                    <p>Advanced freezing systems maintaining optimal gelato texture and freshness with separate climate
+                        zones for coffee and ice cream</p>
                 </div>
                 <div class="tech-item fade-in">
                     <h4>IoT Kitchen Equipment</h4>
@@ -989,30 +1072,33 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Target Customers</div>
-                <h2 class="section-title">Serving Luxury Districts</h2>
+                <h2 class="section-title">Serving Doha's Premium Districts</h2>
                 <p class="section-description">
-                    Tailored for the diverse communities of Lusail, The Pearl, and Msheireb
+                    Tailored for the diverse communities of Mina District Corniche, Lusail, The Pearl, Msheireb, and
+                    other prime Doha locations
                 </p>
             </div>
             <div class="target-grid">
                 <div class="target-card fade-in">
                     <h4>End Users</h4>
                     <ul class="target-list">
+                        <li>Mina District Corniche visitors</li>
                         <li>Lusail City residents</li>
+                        <li>The Pearl community members</li>
                         <li>Office workers and business professionals</li>
                         <li>Students and daily commuters</li>
-                        <li>Tourists and visitors to waterfront areas</li>
-                        <li>Couples and small families</li>
-                        <li>Social gatherings seeking premium experience</li>
+                        <li>Tourists exploring Doha's waterfront</li>
+                        <li>Couples and families seeking premium experiences</li>
                     </ul>
                 </div>
                 <div class="target-card fade-in">
                     <h4>Business Clients</h4>
                     <ul class="target-list">
+                        <li>Gelati Dino ice cream brand</li>
                         <li>Local coffee brands operating the robobus</li>
                         <li>Food and beverage vendors</li>
                         <li>Specialty coffee roasters</li>
-                        <li>Food shops seeking mobile retail presence</li>
+                        <li>Premium dessert suppliers</li>
                         <li>Event organizers requesting on-site service</li>
                     </ul>
                 </div>
@@ -1087,7 +1173,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Qatar Mobility Innovations Center (QMIC). Redefining mobile café experiences in luxury districts.</p>
+        <p>© 2026 Coffee Robobus. Redefining mobile café experiences in luxury districts.</p>
     </footer>
 
     <script>
